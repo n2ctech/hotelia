@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726161932) do
+ActiveRecord::Schema.define(version: 20170726162700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,16 @@ ActiveRecord::Schema.define(version: 20170726161932) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "families", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "hotels", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "chain_id"
-    t.string "name"
+    t.string "name", null: false
+    t.integer "location_id", null: false
+    t.integer "chain_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chain_id"], name: "index_hotels_on_chain_id"
@@ -52,6 +58,14 @@ ActiveRecord::Schema.define(version: 20170726161932) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "subfamilies", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "family_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_subfamilies_on_family_id"
   end
 
   create_table "ware_houses", force: :cascade do |t|
