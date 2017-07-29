@@ -5,6 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :hotel
-
-  validates :hotel, presence: true
 end
