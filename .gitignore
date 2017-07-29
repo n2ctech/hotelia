@@ -18,3 +18,4 @@ config/database.yml
 /yarn-error.log
 
 .byebug_history
+public/uploads/
