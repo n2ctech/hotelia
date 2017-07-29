@@ -49,7 +49,7 @@ ActiveAdmin.register Product do
       f.has_many :images, new_record: true, allow_destroy: true do |image|
         image.input :file, as: :file,
           hint: image.object.file.thumb.url ?
-            image_tag(image.object.file.thumb.url) : content_tag(:span, "no image")
+            image_tag(image.object.file.thumb.url) : ""
       end
     end
     f.actions
