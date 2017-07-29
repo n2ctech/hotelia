@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170729041522) do
+ActiveRecord::Schema.define(version: 20170729043527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,18 @@ ActiveRecord::Schema.define(version: 20170729041522) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hotel_id"], name: "index_users_on_hotel_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "warehouse_products", force: :cascade do |t|
+    t.integer "warehouse_id", null: false
+    t.integer "product_id", null: false
+    t.integer "stock"
+    t.float "price"
+    t.float "discount", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_warehouse_products_on_product_id"
+    t.index ["warehouse_id"], name: "index_warehouse_products_on_warehouse_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
