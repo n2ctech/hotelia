@@ -1,4 +1,4 @@
-ActiveAdmin.register WareHouse do
+ActiveAdmin.register Warehouse do
   permit_params :name, :location_id
 
   index do
@@ -10,7 +10,7 @@ ActiveAdmin.register WareHouse do
   end
 
   form do |f|
-    f.inputs "WareHouse Details" do
+    f.inputs "Warehouse Details" do
       f.input :name
       f.input :location
     end
