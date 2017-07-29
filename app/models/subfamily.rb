@@ -1,5 +1,5 @@
 class Subfamily < ApplicationRecord
   belongs_to :family
 
-  validates :family, :name, presence: true
+  validates :name, presence: true
 end

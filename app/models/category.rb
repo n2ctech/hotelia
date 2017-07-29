@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
   belongs_to :subfamily
 
-  validates :name, :subfamily, presence: true
+  validates :name, presence: true
 end

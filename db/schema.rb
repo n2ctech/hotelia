@@ -152,11 +152,13 @@ ActiveRecord::Schema.define(version: 20170729043527) do
   create_table "warehouse_products", force: :cascade do |t|
     t.integer "warehouse_id", null: false
     t.integer "product_id", null: false
+    t.integer "chain_id"
     t.integer "stock"
     t.float "price"
     t.float "discount", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["chain_id"], name: "index_warehouse_products_on_chain_id"
     t.index ["product_id"], name: "index_warehouse_products_on_product_id"
     t.index ["warehouse_id"], name: "index_warehouse_products_on_warehouse_id"
   end
