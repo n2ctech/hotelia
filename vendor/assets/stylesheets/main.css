@@ -45,23 +45,3 @@ Primary use:	Furniture Store, E-commerce, Sofa, Furniture Designer, Multipurpose
 /*-----------------------------------------------------------------
 [All Css Import]
 -------------------------------------------------------------------*/
-
-/*---bootstap.CSS inluad---*/
-@import url("bootstrap.min.css");
-/*---font-awesome css inluad---*/
-@import url("font-awesome/css/font-awesome.min.css");
-/*---megamenu css inluad---*/
-@import url("menu-menu/css/hover-dropdown-menu.css");
-/*---slider css inluad---*/
-@import url("owl-carousel-slider/css/owl.carousel.css");
-@import url("owl-carousel-slider/css/owl.theme.default.css");
-/*---fancyBox.css inluad---*/
-@import url("fancyBox/css/jquery.fancybox.css");
-/*---acordian.css inluad---*/
-@import url("acordian/css/jquery-ui.css");
-/*---vertical.css inluad---*/
-@import url("vertical-slider/css/jquery.bxslider.css");
-/*---style.css inluad---*/
-@import url("style.css");
-/*---sresponsive.css inluad---*/
-@import url("responsive.css");
