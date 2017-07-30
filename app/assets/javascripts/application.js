@@ -11,4 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree .
+//= require jquery.min
+//= require bootstrap.min
+//= require owl-carousel-slider/js/owl.carousel.min
+//= require menu-menu/js/hover-dropdown-menu
+//= require fancyBox/js/jquery.fancybox.pack
+//= require fancyBox/js/jquery.fancybox-media
+//= require vertical-slider/js/jquery.bxslider
+//= require acordian/js/jquery-ui
+//= require menu-menu/js/jquery.hover-dropdown-menu-addon
+//= require switcher/js/switcher
+//= require main

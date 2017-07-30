@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Hotelia
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+  body
+    = render "layouts/header"
+    .pad-bottom80.pad-top80.blog-griad
+      .container
+        = yield
+    = render "layouts/footer"
+    = javascript_include_tag 'application'
