@@ -11,6 +11,16 @@
  * It is generally better to create a new file per style scope.
  *
  *= require main
+ *= require bootstrap.min
+ *= require font-awesome/css/font-awesome.min
+ *= require menu-menu/css/hover-dropdown-menu
+ *= require owl-carousel-slider/css/owl.carousel
+ *= require owl-carousel-slider/css/owl.theme.default
+ *= require fancyBox/css/jquery.fancybox
+ *= require acordian/css/jquery-ui
+ *= require vertical-slider/css/jquery.bxslider
+ *= require style
+ *= require responsive
  *= require color
  *= require switcher/css/switcher
  *= require_self
