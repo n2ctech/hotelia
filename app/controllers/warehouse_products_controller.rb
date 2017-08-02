@@ -1,4 +1,4 @@
-class WarehouseProductsController < ApplicationController
+class WarehouseProductsController < BaseController
   def index
     @q = WarehouseProduct.ransack(params[:q])
     hotel = current_user.hotel
