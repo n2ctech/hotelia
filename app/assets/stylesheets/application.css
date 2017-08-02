@@ -13,7 +13,7 @@
  *= require main
  *= require bootstrap.min
  *= require select2.min
- *= require font-awesome/css/font-awesome.min
+ *= require font-awesome
  *= require menu-menu/css/hover-dropdown-menu
  *= require owl-carousel-slider/css/owl.carousel
  *= require owl-carousel-slider/css/owl.theme.default
