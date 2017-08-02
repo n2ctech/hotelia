@@ -23,5 +23,6 @@
  *= require responsive
  *= require color
  *= require switcher/css/switcher
+ *= require common
  *= require_self
  */

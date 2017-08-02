@@ -22,3 +22,5 @@
 //= require menu-menu/js/jquery.hover-dropdown-menu-addon
 //= require switcher/js/switcher
 //= require main
+//= require common
+//= require products

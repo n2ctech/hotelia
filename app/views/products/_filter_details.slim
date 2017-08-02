@@ -1,0 +1,16 @@
+h3.mar-top20.ui-accordion-header.ui-corner-top.ui-accordion-header-collapsed.ui-corner-all.ui-state-default.ui-accordion-icons aria-controls="ui-id-7" aria-expanded="false" aria-selected="false" role="tab" tabindex="-1" = name
+.ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content aria-hidden="true" aria-labelledby="ui-id-7" role="tabpanel" style=("display: none;")
+  .Categories
+    .col-md-12.row
+      .checbox-section.mar-top10
+        .col-md-12.row
+          .content
+            .box
+              - values.each do |id, value|
+                p
+                  input [
+                    id="#{input_name}#{id}" name=input_name type="checkbox"
+                    value=id checked=params[input_name[0..-3]]&.include?(id.to_s)
+                  ]
+                  label for="#{input_name}#{id}"
+                    = value
