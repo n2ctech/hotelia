@@ -35,6 +35,10 @@ gem 'activeadmin', '1.0.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'kaminari'
+gem 'draper'
+gem 'i18n-tasks'
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

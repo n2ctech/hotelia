@@ -1,0 +1,200 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".our_products")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".products")
+.row
+  /! //==blog section Start==//
+  section
+    .products-section
+      .container
+        .row
+          #collectiongrid
+            .col-md-9.col-sm-8.col-xs-12.pull-right
+              .row
+                .page-tool
+                  .col-md-8.col-sm-8.col-xs-12
+                    .page-tool-box.padT5
+                      .row
+                        .col-md-6.col-sm-12.col-xs-12.marB10.padT5
+                          a.viewGrid
+                            i.fa.fa-th aria-hidden="true"
+                          a.viewList
+                            i.fa.fa-th-list aria-hidden="true"
+                          span = page_entries_info @warehouse_products, entry_name: t(".product")
+                        .col-md-5.col-sm-8.col-xs-12.billing-box.select.sow-page-secton.responsive-top1.box
+                          span = t(".show")
+                          = per_page_options
+                          span = t(".per_page")
+                  .col-md-4.col-sm-4.col-xs-12.marB10.padT5.responsive-top1.tool-bar-boxs
+                    .page-tool-box.page-tool-box-right.billing-box.select.sow-page-secton.drop-box-sec.boxx
+                      span = t(".sort_by")
+                      | &nbsp;
+                      = sort_link(@q, :product_name, default_order: :asc)
+                      = sort_link(@q, :price, default_order: :asc)
+                #productsgriads.products.mar-top30
+                  - @warehouse_products.each do |warehouse_product|
+                    = render partial: "warehouse_product_grid_item",
+                      locals: {warehouse_product: warehouse_product}
+                  .col-md-12
+                    = paginate @warehouse_products
+              .row
+                #productslist.products.list.box.mar-top30
+                  - @warehouse_products.each do |warehouse_product|
+                    = render partial: "warehouse_product_list_item",
+                      locals: {warehouse_product: warehouse_product}
+                  .clear
+                  .col-md-12.text-center
+                    = paginate @warehouse_products
+            .col-md-3.col-sm-4.col-xs-12.siad-bar-sec
+              .row
+                .col-md-12
+                  = search_form_for @q do |f|
+                    .search-box-1.mar-bottom40#products-search
+                      = f.search_field :product_name_cont, placeholder: t(".search")
+                      button.button-style type="submit" value=""
+                        i.fa.fa-search aria-hidden="true"
+                  = search_form_for @q, class: "form-horizontal" do |f|
+                    = f.hidden_field :product_name_cont
+                    /! //==Categories Start==//
+                    .col-md-12
+                      .Categories
+                        h4.theme-headdings = t(".filter_details")
+                        .form-group
+                          .col-sm-12
+                            = t(".supplier")
+                          .col-sm-12
+                            = f.collection_select :product_supplier_id_in,
+                              Supplier.all, :id, :name, {},
+                              {multiple: true, class: "form-control select2"}
+                        .form-group
+                          .col-sm-12
+                            = t(".brand")
+                          .col-sm-12
+                            = f.collection_select :product_brand_id_in,
+                              Brand.all, :id, :name, {},
+                              {multiple: true, class: "form-control select2"}
+                        .form-group
+                          .col-sm-12
+                            = t(".collection")
+                          .col-sm-12
+                            = f.collection_select :product_collection_id_in,
+                              Collection.all, :id, :name, {},
+                              {multiple: true, class: "form-control select2"}
+                    .col-md-12.col-sm-12.col-xs-12
+                      h4.theme-headdings.mar-bottom30 = t(".filter_by_price")
+                      .form-group
+                        .col-sm-6
+                          = t(".greater_than")
+                        .col-sm-6
+                          = f.search_field :price_gteq, class: "form-control"
+                      .form-group
+                        .col-sm-6
+                          = t(".less_than")
+                        .col-sm-6
+                          = f.search_field :price_lteq, class: "form-control"
+                      .form-group.mar-top30
+                        .col-md-6.col-sm-6.col-xs-6
+                          button.itg-button type="submit" = t(".filter")
+                .clear
+                .col-md-12.pad-top30
+                  h4.theme-headdings Top Rating Products
+                  .post.pad-top20
+                    .row
+                      .col-md-5.col-sm-5.col-xs-5.imd-box
+                        img alt="" src=asset_path("all/side-bar-img1.jpg")
+                      .col-md-7.col-sm-7.col-xs-7.post-section
+                        h4.theme-headdings
+                          a href=""  Modern Chairs
+                        .star-box-section.rating-box.text-left
+                          p
+                            i.fa.fa-star
+                            i.fa.fa-star
+                            i.fa.fa-star
+                            i.fa.fa-star
+                            i.star-code.fa.fa-star-half-o aria-hidden="true"
+                        .figure-boxx.rsting.pre
+                          p 100.00$
+                  .post.pad-top20
+                    .row
+                      .col-md-5.col-sm-5.col-xs-5.imd-box
+                        img alt="" src=asset_path("all/side-bar-img2.jpg")
+                      .col-md-7.col-sm-7.col-xs-7.post-section
+                        h4.theme-headdings
+                          a href=""  Modern Chairs
+                        .star-box-section.rating-box.text-left
+                          p
+                            i.fa.fa-star
+                            i.fa.fa-star
+                            i.fa.fa-star
+                            i.fa.fa-star
+                            i.star-code.fa.fa-star-half-o aria-hidden="true"
+                        .figure-boxx.rsting.pre
+                          p 100.00$
+                    .row
+                      .col-md-12.rating-section
+                        a.itg-button.mar-top20 href=""  MORE PRODUCTS
+                .col-md-12.pad-top40.collection-product-slider
+                  .row
+                    #product-sidebar-slider.owl-carousel.owl-theme
+                      .item
+                        .col-md-12.col-sm-12.col-xs-12
+                          figure.itg-hover-style2
+                            img alt="" src=asset_path("Products/Products3.png")
+                            .products-boxes
+                              ul.icon-hover
+                                li
+                                  a data-target="#myModal" data-toggle="modal" href="#"
+                                    i.fa.fa-eye aria-hidden="true"
+                                li
+                                  a href="product-detail.html"
+                                    i.fa.fa-shopping-cart aria-hidden="true"
+                                li
+                                  a href="#"
+                                    i.fa.fa-heart aria-hidden="true"
+                            figcaption.figure-boxx.figure-section-hover
+                              h4.theme-headdings.text-center.pad-top10
+                                a href="#"  Modern Chairs
+                              p $169.00
+                      .item
+                        .col-md-12.col-sm-12.col-xs-12
+                          figure.itg-hover-style2
+                            img alt="" src=asset_path("Products/Products3.png")
+                            .products-boxes
+                              ul.icon-hover
+                                li
+                                  a data-target="#myModal" data-toggle="modal" href="#"
+                                    i.fa.fa-eye aria-hidden="true"
+                                li
+                                  a href="product-detail.html"
+                                    i.fa.fa-shopping-cart aria-hidden="true"
+                                li
+                                  a href="#"
+                                    i.fa.fa-heart aria-hidden="true"
+                            figcaption.figure-boxx.figure-section-hover
+                              h4.theme-headdings.text-center.pad-top10
+                                a href="#"  Modern Chairs
+                              p $169.00
+                      .item
+                        .col-md-12.col-sm-12.col-xs-12
+                          figure.itg-hover-style2
+                            img alt="" src=asset_path("Products/Products3.png")
+                            .products-boxes
+                              ul.icon-hover
+                                li
+                                  a data-target="#myModal" data-toggle="modal" href="#"
+                                    i.fa.fa-eye aria-hidden="true"
+                                li
+                                  a href="product-detail.html"
+                                    i.fa.fa-shopping-cart aria-hidden="true"
+                                li
+                                  a href="#"
+                                    i.fa.fa-heart aria-hidden="true"
+                            figcaption.figure-boxx.figure-section-hover
+                              h4.theme-headdings.text-center.pad-top10
+                                a href="#"  Modern Chairs
+                              p $169.00
+  /! //==blog section End==//

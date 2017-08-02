@@ -111,31 +111,9 @@ header
                 /! nav
                 ul.nav.navbar-nav
                   li
-                    a href="index.html"  Home
+                    a href="/" = t(".home")
                   li
-                    a href="#"  Page
-                    ul.dropdown-menu
-                      li
-                        a href="account.html"  Account
-                      li
-                        a href="coming-soon.html"  Comming Soon
-                      li
-                        a href="404-page.html"  404 Error
-                  li
-                    a href="#"  Shop
-                    ul.dropdown-menu
-                      li
-                        a href="collection-fullwidth.html"  Collection Full
-                      li
-                        a href="collection-list-sidebar.html"  Collection Sidebar
-                      li
-                        a href="cart.html"  Cart
-                      li
-                        a href="checkout.html"  Checkout
-                      li
-                        a href="order.html"  Order
-                      li
-                        a href="product-detail.html"  Product Detail
+                    a href="/products" = t(".products")
                   li
                     a href="#"  Blog
                     ul.dropdown-menu
@@ -167,17 +145,21 @@ header
                       input.search_terms name="search" placeholder="Search" type="text" /
                       button.button-style type="submit" value=""
                         i.fa.fa-search aria-hidden="true"
-                  /!
-                    | <li class="hidden-xs login-box-man"
-                    | <a href="#" class="mini-cart-icon"><i class="fa fa-user " aria-hidden="true"></i></a
-                    | <div class="login-section"
-                    | <ul class="pad-10"
-                    | <li><a href="">My Wishlist</a></li
-                    | <li><a href="">Sign In</a></li
-                    | <li><a href="">Create Account</a></li
-                    | </ul
-                    | </div
-                    | </li
+                  li.hidden-xs.login-box-man
+                    a.mini-cart-icon href="#"
+                      i.fa.fa-user aria-hidden="true"&gt;
+                    .login-section
+                      ul.pad-10
+                        - if current_user
+                          li
+                            a href="" = t(".my_account")
+                          li
+                            = link_to t(".logout"), destroy_user_session_path, method: :delete
+                        - else
+                          li
+                            = link_to t(".sign_in"), new_user_session_path
+                          li
+                            = link_to t(".create_account"), new_user_registration_path
                   li.hidden-xs.hover-mini-cart
                     a.mini-cart-icon href="#"
                       i.fa.fa-shopping-cart aria-hidden="true"
@@ -223,10 +205,4 @@ header
   .container
     .row
       .col-md-12.col-sm-12.pad-top100.pad-bottom100.heading-box
-        h3.heading-breadcrumb.box-z.text-center Our Collection
-        .clear
-        .breadcrumb-box
-          ul.breadcrumb
-            li
-              a.sab-heading-breadcrumb.box-z href="index.html"  home
-            li.heading-wa.box-z.activ Collection
+        = yield :breadcrumb

@@ -28,6 +28,42 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  active_admin:
+    dashboard: Dashboard
+    dashboard_welcome:
+      call_to_action: Call to action
+      welcome: Welcome
+  layouts:
+    header:
+      home: Home
+      logout: Logout
+      my_account: My account
+      products: Products
+      sign_in: Sign in
+      create_account: Create account
+  warehouse_products:
+    index:
+      brand: Brand
+      collection: Collection
+      filter_details: Filter Details
+      home: Home
+      our_products: Our Products
+      per_page: Per page
+      product: Product
+      products: Products
+      search: Search
+      show: Show
+      sort_by: Sort by
+      supplier: Supplier
+      filter: Filter
+      filter_by_price: Filter by price
+      greater_than: Greater than
+      less_than: Less than

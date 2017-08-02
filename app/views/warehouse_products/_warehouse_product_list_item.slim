@@ -1,0 +1,25 @@
+.col-md-12.col-sm-12.col-xs-12.mar-top30
+  .row
+    .col-md-4.col-sm-4.col-xs-12
+      figure.itg-hover-style2.text-center
+        = image_tag(warehouse_product.product.decorate.thumb_url.to_s, alt: "")
+        .products-boxes
+          ul.icon-hover
+            li
+              a data-target="#myModal" data-toggle="modal" href="#"
+                i.fa.fa-eye aria-hidden="true"
+            li
+              a href="product-detail.html"
+                i.fa.fa-shopping-cart aria-hidden="true"
+            li
+              a href="#"
+                i.fa.fa-heart aria-hidden="true"
+    .col-md-8.col-sm-8.col-xs-12.box-list-page
+      .pad-bottom10.figure-boxx.figure-section-hover
+        h4.theme-headdings.text-left.pad-top10
+          a href="#" = warehouse_product.product_name
+          p
+            | $
+            = warehouse_product.price
+        .per-box
+          p = warehouse_product.product_description

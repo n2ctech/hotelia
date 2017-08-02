@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery.min
+//= require select2.full.min
 //= require bootstrap.min
 //= require owl-carousel-slider/js/owl.carousel.min
 //= require menu-menu/js/hover-dropdown-menu
@@ -22,3 +23,5 @@
 //= require menu-menu/js/jquery.hover-dropdown-menu-addon
 //= require switcher/js/switcher
 //= require main
+//= require common
+//= require products
