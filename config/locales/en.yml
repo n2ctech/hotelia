@@ -49,21 +49,21 @@ en:
       products: Products
       sign_in: Sign in
       create_account: Create account
-  products:
+  warehouse_products:
     index:
-      asc: ASC
       brand: Brand
       collection: Collection
-      desc: DESC
       filter_details: Filter Details
       home: Home
-      name: Name
       our_products: Our Products
       per_page: Per page
-      price: Price
       product: Product
       products: Products
       search: Search
       show: Show
       sort_by: Sort by
       supplier: Supplier
+      filter: Filter
+      filter_by_price: Filter by price
+      greater_than: Greater than
+      less_than: Less than

@@ -15,3 +15,5 @@ $("#sort-type").change ->
   url = new URL(window.location)
   url.searchParams.set("sort_type", @value)
   window.location = url.href
+
+$(".select2").select2()
