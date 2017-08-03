@@ -48,7 +48,6 @@ en:
       my_account: My account
       products: Products
       sign_in: Sign in
-      create_account: Create account
   warehouse_products:
     index:
       brand: Brand
@@ -67,3 +66,8 @@ en:
       filter_by_price: Filter by price
       greater_than: Greater than
       less_than: Less than
+    show:
+      add_to_cart: Add to cart
+      availability: Availability
+      product_code: Product code
+      tags: Tags

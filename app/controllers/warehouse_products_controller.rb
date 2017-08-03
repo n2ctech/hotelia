@@ -8,4 +8,8 @@ class WarehouseProductsController < BaseController
       .where("chain_id IS NULL OR chain_id = ?", hotel.chain_id)
       .page(params[:page]).per(params[:per_page])
   end
+
+  def show
+    @warehouse_product = WarehouseProduct.find params[:id]
+  end
 end

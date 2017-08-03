@@ -1,0 +1,26 @@
+a.mini-cart-icon href="#"
+  i.fa.fa-shopping-cart aria-hidden="true"
+.mini-card-section
+  - current_user.cart_items.each do |cart_item|
+    .mini-cart-product-box.pad-top20
+      .cart-img-box
+        figure
+          = image_tag cart_item.product.decorate.thumb_url
+      .cart-price-box
+        h5
+          = link_to cart_item.product.name,
+            warehouse_product_path(cart_item.warehouse_product)
+        p
+          = "#{cart_item.quantity} x #{cart_item.warehouse_product.price}"
+      .cancle-box
+        = link_to 'x', cart_item, method: :delete, data: {confirm: t(".confirm_destroy")}
+  .price-text-sec.pull-right.pad-top10
+    p
+      = t(".total")
+      | &nbsp;$
+      = current_user.cart_items.map(&:total_price).sum
+    p
+  .clear
+  .price-button-box.pad-top10.pad-bottom20.pull-right
+    a.itg-button.View-btns href="#!"  View cart
+    a.itg-button.pull-right.Checkout-btns href="#!"  Checkout
