@@ -6,4 +6,8 @@ class Image < ApplicationRecord
   def thumb_url
     file&.thumb&.url
   end
+
+  def file_url
+    file&.url
+  end
 end

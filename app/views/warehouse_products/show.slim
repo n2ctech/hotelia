@@ -7,7 +7,7 @@
 
   .col-md-7.col-sm-7.col-xs-12.responsive-top
     h3.theme-headdings.text-left.product-detail-title
-      | Modern Chairs
+      = @warehouse_product.product.name
     = render partial: "warehouse_product_reviews"
     .per-box.texy-left.mar-top15
       p = @warehouse_product.product.description
