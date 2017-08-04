@@ -70,6 +70,8 @@ en:
       filter_by_price: Filter by price
       greater_than: Greater than
       less_than: Less than
+      name: Name
+      price: Price
     show:
       add_to_cart: Add to cart
       availability: Availability
