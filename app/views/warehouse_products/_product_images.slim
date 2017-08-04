@@ -1,0 +1,22 @@
+.col-md-10.col-sm-10.col-xs-12.pull-right
+  figure.product-img
+    - image_path = @warehouse_product.product.first_image&.file_url
+    a.fancybox[href=image_path data-fancybox-group="group"]
+      = image_tag image_path
+
+.col-md-2.col-sm-2.col-xs-2.popap-open.hidden-xs
+  .row.responsive-top.vertical-slider-box.pad-top50
+    .slider8
+      = warehouse_product.product.images.to_a.from(1).each do |image|
+        .col-md-12.col-sm-12.col-xs-12.pad-top30.popap-box.slide
+          figure
+            a.fancybox[href=image.file_url data-fancybox-group="group"]
+              = image_tag image.file_url
+
+.col-md-12.col-sm-12.col-xs-12.hidden-lg.hidden-md.hidden-sm
+  .vertical-slider-2.pad-top30
+    .slider10
+      = warehouse_product.product.images.to_a.from(1).each do |image|
+        .slide
+          a.fancybox[href=image.file_url data-fancybox-group="group"]
+            = image_tag image.file_url

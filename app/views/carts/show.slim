@@ -1,0 +1,116 @@
+.row
+  .col-md-12.col-sm-12.col-xs-12.pad-top80.pad-bottom80
+    .clear
+    .hidden-xs.pad-top-bottom15.order-bosx.price
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+          .row
+            .col-md-1.col-sm-1.col-xs-12
+              .text-c.order-data.grey-bg.text-center.pad15
+            .col-md-3.col-sm-3.col-xs-12
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".product")
+            .col-md-2.col-sm-2.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".price")
+            .col-md-2.col-sm-2.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".quantity")
+            .col-md-2.col-sm-2.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".total")
+            .col-md-1.col-sm-1.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".actions")
+            .col-md-1.col-sm-1.col-xs-12
+              .text-c.order-data.grey-bg.text-center.pad15
+    .product-order-table
+      - @cart_items.each do |cart_item|
+        - warehouse_product = cart_item.warehouse_product
+        .row
+          .col-md-12.col-md-12.col-xs-12.pad-top40
+            .row
+              .order-row.padTB20
+                .col-md-1.col-sm-1.col-xs-1
+                .col-md-3.col-sm-3.col-xs-12
+                  .row
+                    .text-c.b.order-data.order-table.padTB15.text-center
+                      .order-table-cell
+                        .col-md-4.col-sm-6.col-xs-12.col-xs-12
+                          = link_to warehouse_product_path(warehouse_product) do
+                            = image_tag(warehouse_product.product_first_image&.file_url)
+                        .col-md-8.col-sm-12.col-xs-12.pad-left0
+                          h4.product-title
+                            a[href=""]
+                              = warehouse_product.product_name
+                .col-md-2.col-sm-2.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.order-text
+                      h4 = warehouse_product.decorate.formatted_price_after_discount
+                .col-md-2.col-sm-2.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.box.order-text.boxs
+                      input.qty[type="number" value=cart_item.quantity name="qty1"]
+                .col-md-2.col-sm-2.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.order-text
+                      h4 = "$#{cart_item.total_amount}"
+                .col-md-1.col-sm-1.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.order-text.boxs
+                      strong.dots-box
+                        = link_to 'x', cart_item, method: :delete,
+                          data: {confirm: t(".confirm_destroy")}
+                .col-md-1.col-sm-1.col-xs-1
+.row.pad-bottom80
+  .col-md-6.col-sm-6.col-xs-12
+    .row
+      .col-md-12
+        h3.theme-headdings
+          | Calculate Shipping
+      .clear
+      .col-md-12
+        .Cart-Totals-box.mar-top30
+          .row
+            .col-md-6.col-sm-6.billing-box.select.pad-top20.responsive-top
+              input#billing_postcode.form-controller.search_terms[type="text" name="billing_postcode" placeholder="State"]
+            .col-md-6.col-sm-6.billing-box.select.pad-top20.responsive-top
+              input#billing_postcode0.form-controller.box1.search_terms[type="text" name="billing_postcode" placeholder="Postcode"]
+  .col-md-6.col-sm-6.col-xs-12.responsive-top
+    .row
+      .col-md-12
+        h3.theme-headdings
+          = t(".cart_totals")
+    .clear
+    .Cart-Totals-box.mar-top30
+      .row
+        .col-md-12
+          .order-data-color.grey-bg.text-left.order-data.pad-bottom20
+            .row
+              strong.col-md-6.col-sm-6.col-xs-6.text-left.text-cart-box
+                = t(".cart_total")
+              strong.col-md-6.col-sm-6.col-xs-6.text-left.text-cart-box
+                = @cart_items.map(&:total_amount).sum
+              .clear
+        .col-md-12.marB20
+          .order-data-color.order-data.grey-bg.text-left.pad-bottom30
+            .row
+              strong.col-md-6.col-sm-6.col-xs-6.text-left.text-cart-box
+                | Shipping
+              strong.col-md-6.col-sm-6.col-xs-6.text-left.text-cart-box
+                | Free Shipping
+              .clear
+        .col-md-12.marB30
+          .order-data-color.order-data.grey-bg.text-left.pad15
+            .row
+              strong.col-md-6.col-sm-6.col-xs-6.text-left.text-cart-box
+                = t(".order_total")
+              strong.col-md-6.col-sm-6.col-xs-6.text-left.text-cart-box.pre
+                = @cart_items.map(&:total_amount).sum
+              .clear
+    .row.pad-top20
+      .col-md-12
+        a.itg-button.blog-box[href=""]
+          | Update Cart
+        a.itg-button.blog-box.right-bt.pull-right[href=""]
+          | Prceed To Checkout

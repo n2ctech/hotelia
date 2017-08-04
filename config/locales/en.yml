@@ -48,7 +48,10 @@ en:
       my_account: My account
       products: Products
       sign_in: Sign in
-      create_account: Create account
+    cart_info:
+      confirm_destroy: Are you sure?
+      total: Total
+      view_cart: View cart
   warehouse_products:
     index:
       brand: Brand
@@ -67,3 +70,23 @@ en:
       filter_by_price: Filter by price
       greater_than: Greater than
       less_than: Less than
+      name: Name
+      price: Price
+    show:
+      add_to_cart: Add to cart
+      availability: Availability
+      product_code: Product code
+      tags: Tags
+      description: Description
+      price: Price
+  carts:
+    show:
+      actions: Actions
+      cart_total: Cart total
+      cart_totals: Cart totals
+      confirm_destroy: Are you sure?
+      price: Price
+      product: Product
+      quantity: Quantity
+      total: Total
+      order_total: Order total

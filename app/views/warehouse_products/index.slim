@@ -33,8 +33,8 @@
                     .page-tool-box.page-tool-box-right.billing-box.select.sow-page-secton.drop-box-sec.boxx
                       span = t(".sort_by")
                       | &nbsp;
-                      = sort_link(@q, :product_name, default_order: :asc)
-                      = sort_link(@q, :price, default_order: :asc)
+                      = sort_link(@q, :product_name, t(".name"), default_order: :asc)
+                      = sort_link(@q, :price_after_discount, t(".price"), default_order: :asc)
                 #productsgriads.products.mar-top30
                   - @warehouse_products.each do |warehouse_product|
                     = render partial: "warehouse_product_grid_item",
@@ -90,12 +90,12 @@
                         .col-sm-6
                           = t(".greater_than")
                         .col-sm-6
-                          = f.search_field :price_gteq, class: "form-control"
+                          = f.search_field :price_after_discount_gteq, class: "form-control"
                       .form-group
                         .col-sm-6
                           = t(".less_than")
                         .col-sm-6
-                          = f.search_field :price_lteq, class: "form-control"
+                          = f.search_field :price_after_discount_lteq, class: "form-control"
                       .form-group.mar-top30
                         .col-md-6.col-sm-6.col-xs-6
                           button.itg-button type="submit" = t(".filter")

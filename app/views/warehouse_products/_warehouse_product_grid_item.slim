@@ -7,14 +7,12 @@
           a data-target="#myModal" data-toggle="modal" href="#"
             i.fa.fa-eye aria-hidden="true"
         li
-          a href="product-detail.html"
+          = link_to warehouse_product_path(warehouse_product) do
             i.fa.fa-shopping-cart aria-hidden="true"
         li
           a href="#"
             i.fa.fa-heart aria-hidden="true"
     figcaption.figure-boxx.figure-section-hover
       h4.theme-headdings.text-center.pad-top10
-        a href="#" = warehouse_product.product_name
-      p
-        | $
-        = warehouse_product.price
+        = link_to warehouse_product.product_name, warehouse_product_path(warehouse_product)
+      p = warehouse_product.decorate.formatted_price_after_discount

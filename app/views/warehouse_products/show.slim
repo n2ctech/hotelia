@@ -1,0 +1,67 @@
+
+.row.pad-bottom80.pad-top80
+  .col-md-5.col-sm-5.col-xs-12
+    .row
+      = render partial: "product_images",
+        locals: {warehouse_product: @warehouse_product}
+
+  .col-md-7.col-sm-7.col-xs-12.responsive-top
+    h3.theme-headdings.text-left.product-detail-title
+      = @warehouse_product.product.name
+    = render partial: "warehouse_product_reviews"
+    .per-box.texy-left.mar-top15
+      p = @warehouse_product.product.description
+    .head-medial-text.pad-top10
+      p
+        = t(".availability")
+        | : &nbsp;
+        span.Products-in-stock
+          = @warehouse_product.stock
+    .head-medial-text.pad-top10
+      p
+        = t(".product_code")
+        | : &nbsp;
+        span.Products-in-stock
+          = @warehouse_product.product.code
+    .head-medial-text.pad-top10
+      p
+        = t(".tags")
+        | : &nbsp;
+        span.Products-in-stock
+          |  Modern Chairs
+    .head-medial-text.pad-top10
+      p
+        = t(".price")
+        | : &nbsp;
+        span.Products-in-stock
+          = @warehouse_product.decorate.formatted_price_after_discount
+
+    = form_for :cart_item, url: cart_items_path do |f|
+      = f.hidden_field :warehouse_product_id, value: @warehouse_product.id
+      .col-md-5.col-sm-5.row
+        .order-data.box.order-table.text-center.padTB15
+          .order-table-cell.order-text.product-input-type
+            = f.number_field :quantity, value: 1
+      .col-md-7.col-sm-7.product-box-btm-blog.row
+        = f.submit t(".add_to_cart"),
+          class: "itg-button pro btn left m-t-15 m-l-10"
+.col-md-12.col-sm-12.col-xs-12.pad-bottom80.pro-detals-post
+  .row
+    .tab.table-box
+      button.tablinks.active.tap-border[data-id="descript"]
+        = t(".description")
+      button.tablinks.tap-border[data-id="sizeGuide"]
+        | Sizing Guide
+      button.tablinks.tap-border[data-id="assTags"]
+        | Assigned tags
+      button.tablinks.tap-border[data-id="reviews"]
+        | Reviews
+    #descript.tabcontent[style="display: block;"]
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+          .Profile.setting.box.text.border.pad-top20.pad-bottom20
+            = @warehouse_product.product.description
+    #sizeGuide.tabcontent[style="display: none;"]
+    #reviews.tabcontent[style="display: none;"]
+
+= render partial: "related_products"

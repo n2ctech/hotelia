@@ -73,37 +73,8 @@ header
                 .icons-section.boxx.pull-right
                   ul
                     li.hidden-sm.hidden-md.hidden-lg.hover-mini-cart
-                      a.mini-cart-icon href="#"
-                        i.fa.fa-shopping-cart aria-hidden="true"
-                      .mini-card-section
-                        .mini-cart-product-box.pad-top20
-                          .cart-img-box
-                            figure
-                              img alt="" src=asset_path("all/mini-cart-img1.jpg")
-                          .cart-price-box
-                            h5
-                              a href="product-detail.html"  Modern Chairs
-                            p $100x1
-                          .cancle-box
-                            a href="#"  x
-                        .mini-cart-product-box.pad-top20
-                          .cart-img-box
-                            figure
-                              img alt="" src=asset_path("all/mini-cart-img1.jpg")
-                          .cart-price-box
-                            h5
-                              a href="product-detail.html"  Modern Chairs
-                            p $100x1
-                          .cancle-box
-                            a href="#"  x
-                        .price-text-sec.pull-right.pad-top10
-                          p
-                            | Total $200
-                          p
-                        .clear
-                        .price-button-box.pad-top10.pad-bottom20.pull-right
-                          a.itg-button.View-btns href="cart.html"  View cart
-                          a.itg-button.pull-right.Checkout-btns href="checkout.html"  Checkout
+                      - if current_user
+                        = render "layouts/cart_info"
                 a.navbar-brand.hidden-sm.hidden-md.hidden-lg.logo-second href="index.html"
                   img.site_logo alt=("Site Logo") src=asset_path("menu-logo.png")
               /! Navbar Collapse
@@ -113,7 +84,7 @@ header
                   li
                     a href="/" = t(".home")
                   li
-                    a href="/products" = t(".products")
+                    = link_to t(".products"), warehouse_products_path
                   li
                     a href="#"  Blog
                     ul.dropdown-menu
@@ -158,40 +129,9 @@ header
                         - else
                           li
                             = link_to t(".sign_in"), new_user_session_path
-                          li
-                            = link_to t(".create_account"), new_user_registration_path
                   li.hidden-xs.hover-mini-cart
-                    a.mini-cart-icon href="#"
-                      i.fa.fa-shopping-cart aria-hidden="true"
-                    .mini-card-section
-                      .mini-cart-product-box.pad-top20
-                        .cart-img-box
-                          figure
-                            img alt="" src=asset_path("all/mini-cart-img1.jpg")
-                        .cart-price-box
-                          h5
-                            a href="product-detail.html"  Modern Chairs
-                          p $100x1
-                        .cancle-box
-                          a href="#"  x
-                      .mini-cart-product-box.pad-top20
-                        .cart-img-box
-                          figure
-                            img alt="" src=asset_path("all/mini-cart-img1.jpg")
-                        .cart-price-box
-                          h5
-                            a href="product-detail.html"  Modern Chairs
-                          p $100x1
-                        .cancle-box
-                          a href="#"  x
-                      .price-text-sec.pull-right.pad-top10
-                        p
-                          | Total $200
-                        p
-                      .clear
-                      .price-button-box.pad-top10.pad-bottom20.pull-right
-                        a.itg-button.View-btns href="cart.html"  View cart
-                        a.itg-button.pull-right.Checkout-btns href="checkout.html"  Checkout
+                    - if current_user
+                      = render "layouts/cart_info"
             /! col-md-12
           /! row
         /! container
