@@ -18,9 +18,9 @@ a.mini-cart-icon href="#"
     p
       = t(".total")
       | &nbsp;$
-      = current_user.cart_items.map(&:total_price).sum
+      = current_user.cart_items.map(&:total_amount).sum
     p
   .clear
   .price-button-box.pad-top10.pad-bottom20.pull-right
-    a.itg-button.View-btns href="#!"  View cart
+    = link_to t(".view_cart"), cart_path, class: "itg-button View-btns"
     a.itg-button.pull-right.Checkout-btns href="#!"  Checkout

@@ -17,9 +17,7 @@
     .col-md-8.col-sm-8.col-xs-12.box-list-page
       .pad-bottom10.figure-boxx.figure-section-hover
         h4.theme-headdings.text-left.pad-top10
-          a href="#" = warehouse_product.product_name
-          p
-            | $
-            = warehouse_product.price
+          = link_to warehouse_product.product_name, warehouse_product_path(warehouse_product)
+        p = warehouse_product.decorate.formatted_price_after_discount
         .per-box
           p = warehouse_product.product_description

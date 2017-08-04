@@ -73,7 +73,8 @@ header
                 .icons-section.boxx.pull-right
                   ul
                     li.hidden-sm.hidden-md.hidden-lg.hover-mini-cart
-                      = render "layouts/cart_info"
+                      - if current_user
+                        = render "layouts/cart_info"
                 a.navbar-brand.hidden-sm.hidden-md.hidden-lg.logo-second href="index.html"
                   img.site_logo alt=("Site Logo") src=asset_path("menu-logo.png")
               /! Navbar Collapse
@@ -129,7 +130,8 @@ header
                           li
                             = link_to t(".sign_in"), new_user_session_path
                   li.hidden-xs.hover-mini-cart
-                    = render "layouts/cart_info"
+                    - if current_user
+                      = render "layouts/cart_info"
             /! col-md-12
           /! row
         /! container

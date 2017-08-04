@@ -29,6 +29,13 @@
         | : &nbsp;
         span.Products-in-stock
           |  Modern Chairs
+    .head-medial-text.pad-top10
+      p
+        = t(".price")
+        | : &nbsp;
+        span.Products-in-stock
+          = @warehouse_product.decorate.formatted_price_after_discount
+
     = form_for :cart_item, url: cart_items_path do |f|
       = f.hidden_field :warehouse_product_id, value: @warehouse_product.id
       .col-md-5.col-sm-5.row

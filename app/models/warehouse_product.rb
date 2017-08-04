@@ -11,9 +11,11 @@ class WarehouseProduct < ApplicationRecord
   validates_numericality_of :price, :stock, :discount,
     greater_than_or_equal_to: 0
 
-  delegate :name, :description, to: :product, prefix: true
+  before_save :set_price_after_discount
 
-  def price_after_discount
-    price - discount
+  delegate :name, :description, :first_image, to: :product, prefix: true
+
+  def set_price_after_discount
+    self.price_after_discount = price - discount
   end
 end
