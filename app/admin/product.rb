@@ -1,6 +1,6 @@
 ActiveAdmin.register Product do
   permit_params :brand_id, :supplier_id, :subcategory_id, :collection_id,
-    :name, :description, :code, :features,
+    :name, :description, :code, :features, :all_tags,
     images_attributes: [:id, :file, :_destroy]
 
   index do
@@ -43,6 +43,7 @@ ActiveAdmin.register Product do
       f.input :collection
       f.input :description
       f.input :features
+      f.input :all_tags
     end
 
     f.inputs "Attachment", :multipart => true do

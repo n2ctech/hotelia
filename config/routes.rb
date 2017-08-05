@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :warehouse_products
   resources :cart_items
   resource :cart
+  resources :tags
 end
