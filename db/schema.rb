@@ -99,6 +99,29 @@ ActiveRecord::Schema.define(version: 20170807133109) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "warehouse_product_id", null: false
+    t.integer "quantity", null: false
+    t.float "price", null: false
+    t.float "total", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["warehouse_product_id"], name: "index_order_items_on_warehouse_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "comment"
+    t.float "total"
+    t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_orders_on_uid"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer "brand_id"
     t.integer "supplier_id"

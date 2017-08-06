@@ -2,12 +2,20 @@ class CartItemsController < BaseController
   def create
     cart_item = current_user.cart_items
       .find_by cart_item_params.slice(:warehouse_product_id)
-    if cart_item
-      quantity = cart_item.quantity + cart_item_params[:quantity].to_i
-      cart_item.update quantity: quantity
+
+    is_success =
+      if cart_item
+        quantity = cart_item.quantity + cart_item_params[:quantity].to_i
+        cart_item.update quantity: quantity
+      else
+        cart_item = current_user.cart_items.build cart_item_params
+        cart_item.save
+      end
+
+    if is_success
+      flash[:success] = t(".create_cart_item_success")
     else
-      cart_item = current_user.cart_items.build cart_item_params
-      cart_item.save
+      flash[:danger] = t(".create_cart_item_failure")
     end
     redirect_to request.referer
   end

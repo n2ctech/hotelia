@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :cart_items
   resource :cart
   resources :tags
+  resources :orders, param: :uid
 
   patch 'change_locale/:locale', to: 'settings#change_locale', as: :change_locale
   patch 'change_currency/:currency', to: 'settings#change_currency', as: :change_currency

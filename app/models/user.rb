@@ -5,9 +5,12 @@ class User < ApplicationRecord
 
   belongs_to :hotel
   has_many :cart_items
+  has_many :orders
 
   validates :locale, inclusion: { in: %w(en es pt) }
   validates :currency, inclusion: { in: %w(EUR USD CVE) }
+
+  accepts_nested_attributes_for :cart_items
 
   def flag
     case locale

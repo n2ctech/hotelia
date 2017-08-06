@@ -1,0 +1,107 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".order")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".order")
+
+.row
+  .col-md-12.col-sm-12.col-xs-12.pad-bottom80
+    .clear
+    .hidden-xs.pad-top-bottom15.order-bosx.price
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+          .row
+            .col-md-1.col-sm-1.col-xs-12
+              .text-c.order-data.grey-bg.text-center.pad15
+            .col-md-3.col-sm-3.col-xs-12
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".product")
+            .col-md-2.col-sm-2.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".price")
+            .col-md-2.col-sm-2.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".quantity")
+            .col-md-2.col-sm-2.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".total")
+            .col-md-1.col-sm-1.marB30
+              .text-c.order-data.grey-bg.text-center.pad15
+                h4 = t(".actions")
+            .col-md-1.col-sm-1.col-xs-12
+              .text-c.order-data.grey-bg.text-center.pad15
+    .product-order-table
+      - @order.order_items.each do |order_item|
+        - warehouse_product = order_item.warehouse_product
+        .row
+          .col-md-12.col-md-12.col-xs-12.pad-top40
+            .row
+              .order-row.padTB20
+                .col-md-1.col-sm-1.col-xs-1
+                .col-md-3.col-sm-3.col-xs-12
+                  .row
+                    .text-c.b.order-data.order-table.padTB15.text-center
+                      .order-table-cell
+                        .col-md-4.col-sm-6.col-xs-12.col-xs-12
+                          = link_to warehouse_product_path(warehouse_product) do
+                            = image_tag(warehouse_product.product_first_image&.file_url)
+                        .col-md-8.col-sm-12.col-xs-12.pad-left0
+                          h4.product-title
+                            = link_to warehouse_product.product_name,
+                              warehouse_product_path(warehouse_product)
+                .col-md-2.col-sm-2.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.order-text
+                      h4 = warehouse_product.decorate.formatted_price_after_discount
+                .col-md-2.col-sm-2.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.box.order-text.boxs
+                      = order_item.quantity
+                .col-md-2.col-sm-2.col-xs-12
+                  .order-data.order-table.text-center.padTB15
+                    .order-table-cell.order-text
+                      h4 = "$#{order_item.total}"
+.row.pad-bottom80
+  .col-sm-offset-6.col-md-6.col-sm-6.col-xs-12.responsive-top
+    .row
+      .col-md-12
+        h3.theme-headdings
+          = t(".order_info")
+    .clear
+    .Cart-Totals-box.mar-top30
+      .row
+        .col-md-12.marB30
+          .order-data-color.order-data.grey-bg.text-left.pad15
+            .row
+              .col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
+                label.text-left.text-cart-box = t(".order_uid")
+              .col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box
+                = @order.uid
+      .row
+        .col-md-12.marB30
+          .order-data-color.order-data.grey-bg.text-left.pad15
+            .row
+              .col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
+                label.text-left.text-cart-box = t(".created_at")
+              .col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box
+                = @order.created_at.strftime("%Y-%m-%d")
+      .row
+        .col-md-12.marB30
+          .order-data-color.order-data.grey-bg.text-left.pad15
+            .row
+              .col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
+                label.text-left.text-cart-box = t(".comment")
+              .col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box
+                = @order.comment
+      .row
+        .col-md-12.marB30
+          .order-data-color.order-data.grey-bg.text-left.pad15
+            .row
+              strong.col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
+                = t(".order_total")
+              strong.col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box.pre
+                = @order.total
+              .clear
