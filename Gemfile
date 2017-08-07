@@ -41,6 +41,8 @@ gem 'i18n-tasks'
 gem 'ransack'
 gem 'font-awesome-rails'
 gem 'traco'
+gem 'high_voltage', '~> 3.0.0'
+gem 'flag-icons-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

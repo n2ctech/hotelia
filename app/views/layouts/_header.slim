@@ -86,27 +86,11 @@ header
                   li
                     = link_to t(".products"), warehouse_products_path
                   li
-                    a href="#"  Blog
-                    ul.dropdown-menu
-                      li
-                        a href="blog-grid-style1.html"  Blogs Style 1
-                      li
-                        a href="blog-grid-style2.html"  Blogs Style 2
-                      li
-                        a href="blog-list-sidebar.html"  Blog List With Sidebar
-                      li.left-side
-                        a href="#"  Single Blog
-                        ul.dropdown-menu
-                          li
-                            a href="blog-detail-sidebar.html"  With Sidebar
-                          li
-                            a href="blog-detail-no-sidebar.html"  Without Sidebar
+                    = link_to 'FAQs', page_path('faq')
                   li
-                    a href="faq-with-sidebar.html"
-                      | FAQs
+                    = link_to 'Terms and Conditions', page_path('terms_and_conditions')
                   li
-                    a href="contact-page.html"
-                      | Contact
+                    = link_to 'Contact', page_path('contact')
               /! navbar-collapse
             .col-md-4.col-sm-4.col-xs-9.hidden-xs
               .icons-section.pad-top20.pull-right
@@ -132,6 +116,7 @@ header
                   li.hidden-xs.hover-mini-cart
                     - if current_user
                       = render "layouts/cart_info"
+                      = flag_icon current_user.locale
             /! col-md-12
           /! row
         /! container
