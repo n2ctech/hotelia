@@ -47,7 +47,7 @@ en:
       logout: Logout
       my_account: My account
       products: Products
-      sign_in: Sign in
+      contact: Contact
     cart_info:
       confirm_destroy: Are you sure?
       total: Total

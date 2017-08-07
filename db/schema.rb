@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807123128) do
+ActiveRecord::Schema.define(version: 20170807133109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,11 +182,17 @@ ActiveRecord::Schema.define(version: 20170807123128) do
     t.integer "product_id", null: false
     t.integer "chain_id"
     t.integer "stock"
-    t.float "price"
-    t.float "discount", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "price_after_discount"
+    t.decimal "price_eur", precision: 10, scale: 2
+    t.decimal "price_usd", precision: 10, scale: 2
+    t.decimal "price_cve", precision: 10, scale: 2
+    t.decimal "discount_eur", precision: 10, scale: 2
+    t.decimal "discount_usd", precision: 10, scale: 2
+    t.decimal "discount_cve", precision: 10, scale: 2
+    t.decimal "price_after_discount_eur", precision: 10, scale: 2
+    t.decimal "price_after_discount_usd", precision: 10, scale: 2
+    t.decimal "price_after_discount_cve", precision: 10, scale: 2
     t.index ["chain_id"], name: "index_warehouse_products_on_chain_id"
     t.index ["product_id"], name: "index_warehouse_products_on_product_id"
     t.index ["warehouse_id"], name: "index_warehouse_products_on_warehouse_id"
