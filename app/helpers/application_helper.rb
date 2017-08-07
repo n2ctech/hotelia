@@ -20,4 +20,17 @@ module ApplicationHelper
     end
     nil
   end
+
+  def cart_currency
+    return @cart_currency if @cart_currency
+    current_user.cart_items.each do |cart_item|
+      next if cart_item.warehouse_product.support_currency?(current_user.currency)
+      return @cart_currency = User::EUR
+    end
+    @cart_currency = current_user.currency
+  end
+
+  def cart_total
+    current_user.cart_items.map{|i| i.total(cart_currency)}.sum
+  end
 end

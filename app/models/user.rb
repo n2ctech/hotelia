@@ -7,6 +7,10 @@ class User < ApplicationRecord
   has_many :cart_items
   has_many :orders
 
+  EUR = "EUR"
+  USD = "USD"
+  CVE = "CVE"
+
   validates :locale, inclusion: { in: %w(en es pt) }
   validates :currency, inclusion: { in: %w(EUR USD CVE) }
 

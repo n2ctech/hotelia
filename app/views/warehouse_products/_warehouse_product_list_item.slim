@@ -18,6 +18,6 @@
       .pad-bottom10.figure-boxx.figure-section-hover
         h4.theme-headdings.text-left.pad-top10
           = link_to warehouse_product.product_name, warehouse_product_path(warehouse_product)
-        p = warehouse_product.decorate.formatted_price_after_discount
+        p = warehouse_product.decorate.formatted_price_after_discount current_user.currency
         .per-box
           p = warehouse_product.product_description

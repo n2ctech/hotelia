@@ -16,6 +16,18 @@ class WarehouseProduct < ApplicationRecord
 
   delegate :name, :description, :first_image, to: :product, prefix: true
 
+  def price_after_discount currency
+    if support_currency?(currency)
+      send("price_after_discount_#{currency.downcase}").to_f
+    else
+      price_after_discount_eur
+    end
+  end
+
+  def support_currency? currency
+    send("price_after_discount_#{currency.downcase}").to_f > 0
+  end
+
   private
   def set_price_after_discount
     self.price_after_discount_eur = price_eur - discount_eur.to_f

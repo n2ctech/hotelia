@@ -10,6 +10,10 @@ class WarehouseProductsController < BaseController
   end
 
   def show
-    @warehouse_product = WarehouseProduct.find params[:id]
+    hotel = current_user.hotel
+    @warehouse_product = WarehouseProduct
+      .where(warehouse: hotel.location.warehouses)
+      .where("chain_id IS NULL OR chain_id = ?", hotel.chain_id)
+      .find params[:id]
   end
 end
