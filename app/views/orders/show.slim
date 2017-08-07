@@ -63,7 +63,7 @@
                 .col-md-2.col-sm-2.col-xs-12
                   .order-data.order-table.text-center.padTB15
                     .order-table-cell.order-text
-                      h4 = "$#{order_item.total}"
+                      h4 = format_price(@order.currency, order_item.total)
 .row.pad-bottom80
   .col-sm-offset-6.col-md-6.col-sm-6.col-xs-12.responsive-top
     .row
@@ -103,5 +103,5 @@
               strong.col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
                 = t(".order_total")
               strong.col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box.pre
-                = @order.total
+                = format_price @order.currency, @order.total
               .clear

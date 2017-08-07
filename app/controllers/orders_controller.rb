@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  include ApplicationHelper
+
   def index
     @orders = current_user.orders
       .includes(order_items: {warehouse_product: :product})
@@ -22,7 +24,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    result = CreateOrder.call current_user, order_params
+    result = CreateOrder.call current_user,
+      order_params.merge(currency: cart_currency)
+
     if result.success?
       flash[:success] = t(".create_order_success")
       redirect_to order_path(result.data)

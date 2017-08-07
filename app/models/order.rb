@@ -20,7 +20,6 @@ class Order < ApplicationRecord
   end
 
   def set_total
-    order_items.each(&:calculate_price)
     self.total ||= order_items.map(&:total).sum
   end
 end
