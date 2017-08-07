@@ -90,12 +90,12 @@
                         .col-sm-6
                           = t(".greater_than")
                         .col-sm-6
-                          = f.search_field :price_after_discount_gteq, class: "form-control"
+                          = f.search_field "price_after_discount_#{current_user.currency.downcase}_gteq", class: "form-control"
                       .form-group
                         .col-sm-6
                           = t(".less_than")
                         .col-sm-6
-                          = f.search_field :price_after_discount_lteq, class: "form-control"
+                          = f.search_field "price_after_discount_#{current_user.currency.downcase}_lteq", class: "form-control"
                       .form-group.mar-top30
                         .col-md-6.col-sm-6.col-xs-6
                           button.itg-button type="submit" = t(".filter")
