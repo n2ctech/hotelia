@@ -73,8 +73,7 @@ header
                 .icons-section.boxx.pull-right
                   ul
                     li.hidden-sm.hidden-md.hidden-lg.hover-mini-cart
-                      - if current_user
-                        = render "layouts/cart_info"
+                      = render "layouts/cart_info"
                 a.navbar-brand.hidden-sm.hidden-md.hidden-lg.logo-second href="index.html"
                   img.site_logo alt=("Site Logo") src=asset_path("menu-logo.png")
               /! Navbar Collapse
@@ -105,18 +104,13 @@ header
                       i.fa.fa-user aria-hidden="true"&gt;
                     .login-section
                       ul.pad-10
-                        - if current_user
-                          li
-                            a href="" = t(".my_account")
-                          li
-                            = link_to t(".logout"), destroy_user_session_path, method: :delete
-                        - else
-                          li
-                            = link_to t(".sign_in"), new_user_session_path
+                        li
+                          a href="" = t(".my_account")
+                        li
+                          = link_to t(".logout"), destroy_user_session_path, method: :delete
                   li.hidden-xs.hover-mini-cart
-                    - if current_user
-                      = render "layouts/cart_info"
-                      = flag_icon current_user.locale
+                    = render "layouts/cart_info"
+                    = flag_icon current_user.locale
             /! col-md-12
           /! row
         /! container
