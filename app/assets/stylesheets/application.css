@@ -28,3 +28,24 @@
  *= require flag-icon
  *= require_self
  */
+
+.top-icon-box3 li i {
+  padding: 6px 0px;
+}
+
+.top-icon-box3 .dropdown-menu li {
+  display: block;
+}
+
+.top-icon-box3 .dropdown-menu li a {
+  display: block;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0 16px;
+}
+
+.top-icon-box3 .dropdown-menu li a:hover {
+  color: #1bbc9b;
+}

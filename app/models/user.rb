@@ -7,4 +7,16 @@ class User < ApplicationRecord
   has_many :cart_items
 
   validates :locale, inclusion: { in: %w(en es pt) }
+  validates :currency, inclusion: { in: %w(EUR USD CVE) }
+
+  def flag
+    case locale
+    when 'en'
+      'gb'
+    when 'es'
+      'es'
+    when 'pt'
+      'pt'
+    end
+  end
 end

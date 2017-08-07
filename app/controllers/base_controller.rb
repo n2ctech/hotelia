@@ -3,5 +3,5 @@ class BaseController < ActionController::Base
   layout "application"
 
   before_action :authenticate_user!
-  before_action { I18n.locale = current_user.&locale || 'en' }
+  before_action { I18n.locale = current_user.locale }
 end

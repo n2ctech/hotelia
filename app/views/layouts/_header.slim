@@ -43,17 +43,19 @@ header
                     .top-icon-box3
                       ul
                         li.footer-icon-left
-                          a href="#"
-                            i.fa.fa-twitter aria-hidden="true"
+                          a href="#" data-toggle="dropdown"
+                            i = flag_icon current_user.flag
+                          ul.dropdown-menu
+                            li = link_to "#{flag_icon 'gb'} English".html_safe, change_locale_path('en'), method: :patch
+                            li = link_to "#{flag_icon 'es'} Español".html_safe, change_locale_path('es'), method: :patch
+                            li = link_to "#{flag_icon 'pt'} Português".html_safe, change_locale_path('pt'), method: :patch
                         li
-                          a href="#"
-                            i.fa.fa-facebook aria-hidden="true"
-                        li
-                          a href="#"
-                            i.fa.fa-dribbble aria-hidden="true"
-                        li
-                          a href="#"
-                            i.fa.fa-instagram aria-hidden="true"
+                          a href="#" data-toggle="dropdown"
+                            i = current_user.currency
+                          ul.dropdown-menu
+                            li = link_to 'EURO', change_currency_path('EUR'), method: :patch
+                            li = link_to 'US Dollar', change_currency_path('USD'), method: :patch
+                            li = link_to 'CVE', change_currency_path('CVE'), method: :patch
   /! //==mega menu start==//
   #main-menu.wa-main-menu
     /! Menu
@@ -101,7 +103,7 @@ header
                         i.fa.fa-search aria-hidden="true"
                   li.hidden-xs.login-box-man
                     a.mini-cart-icon href="#"
-                      i.fa.fa-user aria-hidden="true"&gt;
+                      i.fa.fa-user aria-hidden="true"
                     .login-section
                       ul.pad-10
                         li
@@ -110,7 +112,6 @@ header
                           = link_to t(".logout"), destroy_user_session_path, method: :delete
                   li.hidden-xs.hover-mini-cart
                     = render "layouts/cart_info"
-                    = flag_icon current_user.locale
             /! col-md-12
           /! row
         /! container
