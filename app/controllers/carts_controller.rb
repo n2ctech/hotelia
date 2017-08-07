@@ -1,13 +1,6 @@
 class CartsController < BaseController
   def show
-    @order = Order.new
     @cart_items = current_user.cart_items
-    @cart_items.each do |cart_item|
-      @order.order_items.build(
-        warehouse_product_id: cart_item.warehouse_product_id,
-        quantity: cart_item.quantity
-      )
-    end
   end
 
   def update
