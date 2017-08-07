@@ -48,10 +48,13 @@ en:
       my_account: My account
       products: Products
       contact: Contact
+      sign_in: Sign in
+      orders: Orders
     cart_info:
       confirm_destroy: Are you sure?
       total: Total
       view_cart: View cart
+      checkout: Checkout
   warehouse_products:
     index:
       brand: Brand
@@ -83,10 +86,65 @@ en:
     show:
       actions: Actions
       cart_total: Cart total
-      cart_totals: Cart totals
       confirm_destroy: Are you sure?
       price: Price
       product: Product
       quantity: Quantity
       total: Total
+      update_cart: Update cart
+      process_to_checkout: Process to checkout
+      cart: Cart
+      cart_info: Cart info
+      home: Home
+    update:
+      update_cart_failure: Update cart failure
+      update_cart_success: Update cart success
+  orders:
+    new:
+      back_to_cart: Back to cart
+      create_order: Create order
+      confirm_destroy: Are you sure ?
+  cart_items:
+    create:
+      create_cart_item_failure: Create cart item failure
+      create_cart_item_success: Create cart item success
+  orders:
+    create:
+      create_order_failure: Create order failure
+      create_order_success: Create order success
+    index:
+      action: Action
+      comment: Comment
+      created_at: Created at
+      home: Home
+      order_items: Order items
+      orders: Orders
+      show: Show
+      total: Total
+      uid: Uid
+    new:
+      actions: Actions
+      checkout: Checkout
+      home: Home
+      order_info: Order info
       order_total: Order total
+      price: Price
+      product: Product
+      quantity: Quantity
+      total: Total
+      back_to_cart: Back to cart
+      confirm_destroy: Confirm destroy
+      create_order: Create order
+    show:
+      actions: Actions
+      comment: Comment
+      created_at: Created at
+      home: Home
+      order_info: Order info
+      order_total: Order total
+      order_uid: Order uid
+      price: Price
+      product: Product
+      quantity: quantity
+      total: Total
+      order: Order

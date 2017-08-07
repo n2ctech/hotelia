@@ -1,12 +1,12 @@
 = content_for :breadcrumb
-  h3.heading-breadcrumb.box-z.text-center = t(".cart")
+  h3.heading-breadcrumb.box-z.text-center = t(".checkout")
   .clear
   .breadcrumb-box
     ul.breadcrumb
       li
         a.sab-heading-breadcrumb.box-z href="/" = t(".home")
-        li.heading-wa.box-z.activ = t(".cart")
-= form_for current_user, url: cart_path do |f|
+        li.heading-wa.box-z.activ = t(".checkout")
+= form_for @order do |f|
   .row
     .col-md-12.col-sm-12.col-xs-12.pad-top80.pad-bottom80
       .clear
@@ -33,9 +33,9 @@
                   h4 = t(".actions")
               .col-md-1.col-sm-1.col-xs-12
                 .text-c.order-data.grey-bg.text-center.pad15
-      .product-order-table.pad-bottom50
-        = f.fields_for :cart_items, @cart_items do |f_cart_item|
-          - cart_item = f_cart_item.object
+      .product-order-table
+        = f.fields_for :order_items do |f_order_item, index|
+          - cart_item = @cart_items[f_order_item.options[:child_index]]
           - warehouse_product = cart_item.warehouse_product
           .row
             .col-md-12.col-md-12.col-xs-12.pad-top40
@@ -60,8 +60,9 @@
                   .col-md-2.col-sm-2.col-xs-12
                     .order-data.order-table.text-center.padTB15
                       .order-table-cell.box.order-text.boxs
-                        = f_cart_item.hidden_field :warehouse_product_id
-                        = f_cart_item.number_field :quantity
+                        = f_order_item.hidden_field :warehouse_product_id
+                        = f_order_item.hidden_field :quantity
+                        = cart_item.quantity
                   .col-md-2.col-sm-2.col-xs-12
                     .order-data.order-table.text-center.padTB15
                       .order-table-cell.order-text
@@ -77,19 +78,29 @@
       .row
         .col-md-12
           h3.theme-headdings
-            = t(".cart_info")
+            = t(".order_info")
       .clear
       .Cart-Totals-box.mar-top30
         .row
-          .col-md-12
-            .order-data-color.grey-bg.text-left.order-data.pad-bottom20
+          .col-md-12.marB30
+            .order-data-color.order-data.grey-bg.text-left.pad15
+              .row
+                .col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
+                  = f.label :comment
+                .col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box
+                  = f.text_area :comment
+        .row
+          .col-md-12.marB30
+            .order-data-color.order-data.grey-bg.text-left.pad15
               .row
                 strong.col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
-                  = t(".cart_total")
+                  = t(".order_total")
                 strong.col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box.pre
                   = format_price cart_currency, cart_total
+                .clear
       .row.pad-top20
         .col-md-12
-          = f.submit t(".update_cart"), class: "itg-button blog-box"
-          = link_to t(".process_to_checkout"), new_order_path,
+          = link_to t(".back_to_cart"), cart_path,
+            class: "itg-button blog-box"
+          = f.submit t(".create_order"),
             class: "itg-button blog-box right-bt pull-right"

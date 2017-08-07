@@ -11,16 +11,15 @@ a.mini-cart-icon href="#"
           = link_to cart_item.product.name,
             warehouse_product_path(cart_item.warehouse_product)
         p
-          = "#{cart_item.quantity} x #{cart_item.warehouse_product.price}"
+          = "#{cart_item.quantity} x #{cart_item.warehouse_product.decorate.formatted_price_after_discount current_user.currency}"
       .cancle-box
         = link_to 'x', cart_item, method: :delete, data: {confirm: t(".confirm_destroy")}
   .price-text-sec.pull-right.pad-top10
     p
       = t(".total")
-      | &nbsp;$
-      = current_user.cart_items.map(&:total_amount).sum
+      = format_price cart_currency, cart_total
     p
   .clear
   .price-button-box.pad-top10.pad-bottom20.pull-right
     = link_to t(".view_cart"), cart_path, class: "itg-button View-btns"
-    a.itg-button.pull-right.Checkout-btns href="#!"  Checkout
+    = link_to t(".checkout"), new_order_path, class: "itg-button pull-right Checkout-btns"

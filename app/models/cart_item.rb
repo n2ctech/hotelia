@@ -6,7 +6,7 @@ class CartItem < ApplicationRecord
 
   validates_numericality_of :quantity, greater_than: 0
 
-  def total_amount
-    warehouse_product.price_after_discount * quantity
+  def total currency
+    warehouse_product.price_after_discount(currency) * quantity
   end
 end
