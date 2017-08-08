@@ -10,7 +10,9 @@ ActiveAdmin.register Family do
 
   form do |f|
     f.inputs "Family Details" do
-      f.input :name
+      Family.locale_columns(:name).each do |column|
+        f.input column
+      end
     end
     f.actions
   end

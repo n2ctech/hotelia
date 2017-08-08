@@ -11,7 +11,9 @@ ActiveAdmin.register Category do
 
   form do |f|
     f.inputs "Category Details" do
-      f.input :name
+      Category.locale_columns(:name).each do |column|
+        f.input column
+      end
       f.input :subfamily
     end
     f.actions

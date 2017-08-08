@@ -35,14 +35,14 @@ ActiveAdmin.register Product do
 
   form do |f|
     f.inputs "Product Details" do
-      f.input :name
+      Product.locale_columns(:name, :description, :features).each do |column|
+        f.input column
+      end
       f.input :code
       f.input :brand
       f.input :supplier
       f.input :subcategory
       f.input :collection
-      f.input :description
-      f.input :features
       f.input :all_tags
     end
 

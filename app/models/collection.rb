@@ -1,3 +1,5 @@
 class Collection < ApplicationRecord
-  validates :name, presence: true
+  translates :name
+
+  validates :name_en, presence: true
 end
