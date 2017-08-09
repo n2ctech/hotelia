@@ -84,6 +84,13 @@
                             = f.collection_select :product_collection_id_in,
                               Collection.all, :id, :name, {},
                               {multiple: true, class: "form-control select2"}
+                        .form-group
+                          .col-sm-12
+                            = t(".tag")
+                          .col-sm-12
+                            = f.collection_select :product_tags_id_in,
+                              Tag.all, :id, :name, {},
+                              {multiple: true, class: "form-control select2"}
                     .col-md-12.col-sm-12.col-xs-12
                       h4.theme-headdings.mar-bottom30 = t(".filter_by_price")
                       .form-group

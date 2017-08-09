@@ -1,4 +1,120 @@
 pt:
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  active_admin:
+    dashboard: Dashboard
+    dashboard_welcome:
+      call_to_action: Call to action
+      welcome: Welcome
   layouts:
     header:
-      contact: Contato
+      home: Home
+      logout: Logout
+      my_account: My account
+      products: Products
+      contact: Contact
+      orders: Orders
+    cart_info:
+      confirm_destroy: Are you sure?
+      total: Total
+      view_cart: View cart
+      checkout: Checkout
+  warehouse_products:
+    index:
+      brand: Brand
+      collection: Collection
+      filter_details: Filter Details
+      home: Home
+      our_products: Our Products
+      per_page: Per page
+      product: Product
+      products: Products
+      search: Search
+      show: Show
+      sort_by: Sort by
+      supplier: Supplier
+      filter: Filter
+      filter_by_price: Filter by price
+      greater_than: Greater than
+      less_than: Less than
+      name: Name
+      price: Price
+      tag: Tag
+    show:
+      add_to_cart: Add to cart
+      availability: Availability
+      product_code: Product code
+      tags: Tags
+      description: Description
+      price: Price
+  carts:
+    show:
+      actions: Actions
+      cart_total: Cart total
+      confirm_destroy: Are you sure?
+      price: Price
+      product: Product
+      quantity: Quantity
+      total: Total
+      update_cart: Update cart
+      process_to_checkout: Process to checkout
+      cart: Cart
+      cart_info: Cart info
+      home: Home
+    update:
+      update_cart_failure: Update cart failure
+      update_cart_success: Update cart success
+  orders:
+    new:
+      back_to_cart: Back to cart
+      create_order: Create order
+      confirm_destroy: Are you sure ?
+  cart_items:
+    create:
+      create_cart_item_failure: Create cart item failure
+      create_cart_item_success: Create cart item success
+  orders:
+    create:
+      create_order_failure: Create order failure
+      create_order_success: Create order success
+    index:
+      action: Action
+      comment: Comment
+      created_at: Created at
+      home: Home
+      order_items: Order items
+      orders: Orders
+      show: Show
+      total: Total
+      uid: Uid
+    new:
+      actions: Actions
+      checkout: Checkout
+      home: Home
+      order_info: Order info
+      order_total: Order total
+      price: Price
+      product: Product
+      quantity: Quantity
+      total: Total
+      back_to_cart: Back to cart
+      confirm_destroy: Confirm destroy
+      create_order: Create order
+    show:
+      actions: Actions
+      comment: Comment
+      created_at: Created at
+      home: Home
+      order_info: Order info
+      order_total: Order total
+      order_uid: Order uid
+      price: Price
+      product: Product
+      quantity: quantity
+      total: Total
+      order: Order

@@ -48,7 +48,6 @@ en:
       my_account: My account
       products: Products
       contact: Contact
-      sign_in: Sign in
       orders: Orders
     cart_info:
       confirm_destroy: Are you sure?
@@ -75,6 +74,7 @@ en:
       less_than: Less than
       name: Name
       price: Price
+      tag: Tag
     show:
       add_to_cart: Add to cart
       availability: Availability
