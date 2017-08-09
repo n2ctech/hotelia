@@ -28,7 +28,7 @@
         = t(".tags")
         | : &nbsp;
         span.Products-in-stock
-          |  Modern Chairs
+          = render partial: "tags", locals: {tags: @warehouse_product.product.tags}
     .head-medial-text.pad-top10
       p
         = t(".price")
