@@ -1,5 +1,5 @@
 ActiveAdmin.register Collection do
-  permit_params :name
+  permit_params *Collection.locale_columns(:name)
 
   index do
     selectable_column

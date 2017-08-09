@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :name, :subfamily_id
+  permit_params *Category.locale_columns(:name), :subfamily_id
 
   index do
     selectable_column

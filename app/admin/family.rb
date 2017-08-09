@@ -1,5 +1,5 @@
 ActiveAdmin.register Family do
-  permit_params :name
+  permit_params *Family.locale_columns(:name)
 
   index do
     selectable_column

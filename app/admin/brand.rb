@@ -1,5 +1,5 @@
 ActiveAdmin.register Brand do
-  permit_params :name, :description
+  permit_params :name, *Brand.locale_columns(:description)
 
   index do
     selectable_column
