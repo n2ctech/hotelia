@@ -1,5 +1,5 @@
 ActiveAdmin.register Collection do
-  permit_params :name
+  permit_params *Collection.locale_columns(:name)
 
   index do
     selectable_column
@@ -10,7 +10,9 @@ ActiveAdmin.register Collection do
 
   form do |f|
     f.inputs "Collection Details" do
-      f.input :name
+      Collection.locale_columns(:name).each do |column|
+        f.input column
+      end
     end
     f.actions
   end

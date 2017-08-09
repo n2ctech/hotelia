@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
-  validates :name, :code, presence: true
+  translates :name, :description, :features
+
+  validates :name_en, :code, presence: true
 
   belongs_to :brand
   belongs_to :supplier

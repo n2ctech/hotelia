@@ -1,5 +1,5 @@
 ActiveAdmin.register Subcategory do
-  permit_params :name, :category_id
+  permit_params *Subcategory.locale_columns(:name), :category_id
 
   index do
     selectable_column
@@ -11,7 +11,9 @@ ActiveAdmin.register Subcategory do
 
   form do |f|
     f.inputs "Subcategory Details" do
-      f.input :name
+      Subcategory.locale_columns(:name).each do |column|
+        f.input column
+      end
       f.input :category
     end
     f.actions

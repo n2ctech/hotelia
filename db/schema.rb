@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807165810) do
+ActiveRecord::Schema.define(version: 20170808155855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20170807165810) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name", null: false
-    t.text "description"
+    t.text "description_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description_es"
+    t.text "description_pt"
   end
 
   create_table "cart_items", force: :cascade do |t|
@@ -50,10 +52,12 @@ ActiveRecord::Schema.define(version: 20170807165810) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name_en", null: false
     t.integer "subfamily_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_es"
+    t.string "name_pt"
     t.index ["subfamily_id"], name: "index_categories_on_subfamily_id"
   end
 
@@ -64,15 +68,19 @@ ActiveRecord::Schema.define(version: 20170807165810) do
   end
 
   create_table "collections", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name_en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_es"
+    t.string "name_pt"
   end
 
   create_table "families", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name_en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_es"
+    t.string "name_pt"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -128,12 +136,18 @@ ActiveRecord::Schema.define(version: 20170807165810) do
     t.integer "supplier_id"
     t.integer "subcategory_id"
     t.integer "collection_id"
-    t.string "name", null: false
-    t.text "description"
+    t.string "name_en", null: false
+    t.text "description_en"
     t.string "code", null: false
-    t.text "features"
+    t.text "features_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_es"
+    t.string "name_pt"
+    t.text "description_es"
+    t.text "description_pt"
+    t.text "features_es"
+    t.text "features_pt"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["collection_id"], name: "index_products_on_collection_id"
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
@@ -150,18 +164,22 @@ ActiveRecord::Schema.define(version: 20170807165810) do
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name_en", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_es"
+    t.string "name_pt"
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "subfamilies", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name_en", null: false
     t.integer "family_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_es"
+    t.string "name_pt"
     t.index ["family_id"], name: "index_subfamilies_on_family_id"
   end
 

@@ -1,5 +1,5 @@
 ActiveAdmin.register Subfamily do
-  permit_params :name, :family_id
+  permit_params *Subfamily.locale_columns(:name), :family_id
 
   index do
     selectable_column
@@ -11,7 +11,9 @@ ActiveAdmin.register Subfamily do
 
   form do |f|
     f.inputs "Subfamily Details" do
-      f.input :name
+      Subfamily.locale_columns(:name).each do |column|
+        f.input column
+      end
       f.input :family
     end
     f.actions

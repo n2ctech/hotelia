@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
   permit_params :brand_id, :supplier_id, :subcategory_id, :collection_id,
-    :name, :description, :code, :features, :all_tags,
+    *Product.locale_columns(:name, :description, :features),
+    :code, :all_tags,
     images_attributes: [:id, :file, :_destroy]
 
   index do
@@ -35,14 +36,14 @@ ActiveAdmin.register Product do
 
   form do |f|
     f.inputs "Product Details" do
-      f.input :name
+      Product.locale_columns(:name, :description, :features).each do |column|
+        f.input column
+      end
       f.input :code
       f.input :brand
       f.input :supplier
       f.input :subcategory
       f.input :collection
-      f.input :description
-      f.input :features
       f.input :all_tags
     end
 

@@ -1,5 +1,5 @@
 ActiveAdmin.register Brand do
-  permit_params :name, :description
+  permit_params :name, *Brand.locale_columns(:description)
 
   index do
     selectable_column
@@ -12,7 +12,9 @@ ActiveAdmin.register Brand do
   form do |f|
     f.inputs "Brand Details" do
       f.input :name
-      f.input :description
+      Brand.locale_columns(:description).each do |column|
+        f.input column
+      end
     end
     f.actions
   end
