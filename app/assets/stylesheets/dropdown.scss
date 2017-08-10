@@ -7,4 +7,14 @@
 
 .cd-dropdown-wrapper {
   margin: 10px 0px;
+
+  .cd-dropdown-trigger, .cd-dropdown-trigger:hover {
+    color: white;
+    background: inherit;
+  }
+
+  .cd-dropdown-trigger.dropdown-is-active:hover {
+    color: white;
+    background: inherit;
+  }
 }
