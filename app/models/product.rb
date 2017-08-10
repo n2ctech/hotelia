@@ -14,6 +14,8 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, reject_if: :all_blank,
     allow_destroy: true
 
+  before_save :set_categories, if: :subcategory_id_changed?
+
   def all_tags= names
     self.tags = names.split(',').map do |name|
       Tag.where(name: name.strip).first_or_create!
@@ -22,5 +24,13 @@ class Product < ApplicationRecord
 
   def all_tags
     tags.map(&:name).join(',')
+  end
+
+  private
+
+  def set_categories
+    self.category_id = subcategory&.category_id
+    self.subfamily_id = Category.find_by(id: category_id)&.subfamily_id
+    self.family_id = Subfamily.find_by(id: subfamily_id)&.family_id
   end
 end

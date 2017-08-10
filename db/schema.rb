@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808155855) do
+ActiveRecord::Schema.define(version: 20170810124125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,9 +148,15 @@ ActiveRecord::Schema.define(version: 20170808155855) do
     t.text "description_pt"
     t.text "features_es"
     t.text "features_pt"
+    t.integer "family_id"
+    t.integer "subfamily_id"
+    t.integer "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["collection_id"], name: "index_products_on_collection_id"
+    t.index ["family_id"], name: "index_products_on_family_id"
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
+    t.index ["subfamily_id"], name: "index_products_on_subfamily_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 

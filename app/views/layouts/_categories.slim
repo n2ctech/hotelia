@@ -1,0 +1,23 @@
+.cd-dropdown-wrapper
+  a.cd-dropdown-trigger[href="#0"]
+    = t(".category")
+  nav.cd-dropdown
+    ul.cd-dropdown-content
+      - Family.all.each do |family|
+        li.has-children
+          = link_to family.name, warehouse_products_path(q: {product_family_id_eq: family.id}), class: "off-click"
+          ul.cd-dropdown-content.dropdown-with-box-shadow.is-hidden
+            - family.subfamilies.each do |subfamily|
+              li.has-children
+                = link_to subfamily.name,
+                  warehouse_products_path(q: {product_subfamily_id_eq: subfamily.id}), class: "off-click"
+                ul.cd-dropdown-content.dropdown-with-box-shadow.is-hidden
+                  - subfamily.categories.each do |category|
+                    li.has-children
+                      = link_to category.name,
+                        warehouse_products_path(q: {product_category_id_eq: category.id}), class: "off-click"
+                      ul.cd-dropdown-content.dropdown-with-box-shadow.is-hidden
+                        - category.subcategories.each do |subcategory|
+                          li
+                            = link_to subcategory.name,
+                              warehouse_products_path(q: {product_subcategory_id_eq: subcategory.id}), class: "off-click"
