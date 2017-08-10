@@ -102,9 +102,11 @@ header
                 ul
                   li.search-box1.hidden-xs
                     .search-box-top-bar
-                      input.search_terms name="search" placeholder="Search" type="text" /
-                      button.button-style type="submit" value=""
-                        i.fa.fa-search aria-hidden="true"
+                      = search_form_for @q do |f|
+                        = f.search_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont",
+                          placeholder: t(".search")
+                        button.button-style type="submit" value=""
+                          i.fa.fa-search aria-hidden="true"
                   li.hidden-xs.login-box-man
                     a.mini-cart-icon href="#"
                       i.fa.fa-user aria-hidden="true"
