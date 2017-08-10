@@ -5,7 +5,7 @@ class WarehouseProduct < ApplicationRecord
   belongs_to :product
   belongs_to :chain, optional: true
 
-  validates :price_eur, presence: true
+  validates :price_eur, :price_usd, :price_cve, presence: true
 
   validates_uniqueness_of :product_id, scope: [:warehouse_id, :chain_id]
   validates_numericality_of :price_eur, :price_usd, :price_cve, :stock,
@@ -31,11 +31,7 @@ class WarehouseProduct < ApplicationRecord
   private
   def set_price_after_discount
     self.price_after_discount_eur = price_eur - discount_eur.to_f
-    if price_usd.present?
-      self.price_after_discount_usd = price_usd - discount_usd.to_f
-    end
-    if price_cve.present?
-      self.price_after_discount_cve = price_cve - discount_usd.to_f
-    end
+    self.price_after_discount_usd = price_usd - discount_usd.to_f
+    self.price_after_discount_cve = price_cve - discount_usd.to_f
   end
 end
