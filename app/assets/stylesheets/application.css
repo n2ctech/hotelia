@@ -26,6 +26,9 @@
  *= require switcher/css/switcher
  *= require common
  *= require flag-icon
+ *= require mega-dropdown/reset
+ *= require mega-dropdown/style
+ *= require dropdown
  *= require_self
  */
 
