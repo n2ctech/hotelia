@@ -8,7 +8,6 @@
   .col-md-7.col-sm-7.col-xs-12.responsive-top
     h3.theme-headdings.text-left.product-detail-title
       = @warehouse_product.product.name
-    = render partial: "warehouse_product_reviews"
     .per-box.texy-left.mar-top15
       p = @warehouse_product.product.description
     .head-medial-text.pad-top10
@@ -54,14 +53,11 @@
         | Sizing Guide
       button.tablinks.tap-border[data-id="assTags"]
         | Assigned tags
-      button.tablinks.tap-border[data-id="reviews"]
-        | Reviews
     #descript.tabcontent[style="display: block;"]
       .row
         .col-md-12.col-sm-12.col-xs-12
           .Profile.setting.box.text.border.pad-top20.pad-bottom20
             = @warehouse_product.product.description
     #sizeGuide.tabcontent[style="display: none;"]
-    #reviews.tabcontent[style="display: none;"]
 
 = render partial: "related_products"
