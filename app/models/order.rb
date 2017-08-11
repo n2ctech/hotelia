@@ -3,15 +3,18 @@ class Order < ApplicationRecord
   has_many :order_items
 
   validates_uniqueness_of :uid
+  validates :order_items, presence: true
+  enum currency: {
+    EUR: "EUR",
+    USD: "USD",
+    CVE: "CVE"
+  }
+
+  accepts_nested_attributes_for :order_items, reject_if: :all_blank,
+    allow_destroy: true
+
   before_create :generate_uid
-
-  accepts_nested_attributes_for :order_items
-
-  before_create :set_total
-
-  def to_param
-    uid
-  end
+  before_save :set_total
 
   private
 
@@ -20,6 +23,8 @@ class Order < ApplicationRecord
   end
 
   def set_total
-    self.total ||= order_items.map(&:total).sum
+    order_items.each{|item| item.calculate_price currency}
+    self.items_total = order_items.map(&:total).sum
+    self.total =  items_total + adjustment_total
   end
 end

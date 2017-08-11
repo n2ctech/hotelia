@@ -6,6 +6,9 @@
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
+/*
+ *= require select2.min
+ */
 
 // Active Admin's got SASS!
 @import "active_admin/mixins";
@@ -40,4 +43,3 @@
     box-shadow: none !important;
   }
 }
-
