@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :locale, inclusion: { in: %w(en es pt) }
   validates :currency, inclusion: { in: %w(EUR USD CVE) }
 
+  delegate :name, to: :hotel
+
   accepts_nested_attributes_for :cart_items
 
   def flag

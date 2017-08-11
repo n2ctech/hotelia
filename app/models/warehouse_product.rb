@@ -28,6 +28,10 @@ class WarehouseProduct < ApplicationRecord
     send("price_after_discount_#{currency.downcase}").to_f > 0
   end
 
+  def name
+    "#{warehouse.name} - #{product.name}"
+  end
+
   private
   def set_price_after_discount
     self.price_after_discount_eur = price_eur - discount_eur.to_f

@@ -19,14 +19,14 @@ table.table.table-striped
   tbody
     - @orders.each do |order|
       tr
-        td = link_to order.uid, order_path(order)
+        td = link_to order.uid, order_path(order.uid)
         td
           - order.order_items.each do |order_item|
             p = "#{order_item.product_name} x #{order_item.quantity}"
         td = format_price order.currency, order.total
         td = order.comment
         td = order.created_at.strftime("%Y-%m-%d")
-        td = link_to t(".show"), order_path(order)
+        td = link_to t(".show"), order_path(order.uid)
 
 .row
   .col-md-12.text-center

@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
     if result.success?
       flash[:success] = t(".create_order_success")
-      redirect_to order_path(result.data)
+      redirect_to order_path(result.data.uid)
     else
       flash[:danger] = t(".create_order_failure")
       redirect_to request.referer
