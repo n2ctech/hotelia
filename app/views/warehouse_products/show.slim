@@ -47,17 +47,16 @@
 .col-md-12.col-sm-12.col-xs-12.pad-bottom80.pro-detals-post
   .row
     .tab.table-box
-      button.tablinks.active.tap-border[data-id="descript"]
+      button.tablinks.active.tap-border[data-id="tab-description"]
         = t(".description")
-      button.tablinks.tap-border[data-id="sizeGuide"]
-        | Sizing Guide
-      button.tablinks.tap-border[data-id="assTags"]
-        | Assigned tags
-    #descript.tabcontent[style="display: block;"]
-      .row
-        .col-md-12.col-sm-12.col-xs-12
-          .Profile.setting.box.text.border.pad-top20.pad-bottom20
-            = @warehouse_product.product.description
-    #sizeGuide.tabcontent[style="display: none;"]
+      button.tablinks.tap-border[data-id="tab-features"]
+        = t(".features")
 
-= render partial: "related_products"
+    #tab-description.tabcontent[style="display: block;"]
+      .Profile.setting.box.text.border.pad-20.light-grey-background
+        = simple_format @warehouse_product.product.description.to_s
+    #tab-features.tabcontent[style="display: none;"]
+      .Profile.setting.box.text.border.pad-20.light-grey-background
+        = simple_format @warehouse_product.product.features.to_s
+
+// = render partial: "related_products"
