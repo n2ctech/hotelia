@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :cart
   resources :tags
   resources :orders, param: :uid
+  resources :contacts, only: :create
 
   patch 'change_locale/:locale', to: 'settings#change_locale', as: :change_locale
   patch 'change_currency/:currency', to: 'settings#change_currency', as: :change_currency

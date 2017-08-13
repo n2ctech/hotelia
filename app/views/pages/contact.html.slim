@@ -9,51 +9,45 @@
 
 .row
   .message-box-sec1.pad-bottom80
-    <div class="col-md-6 col-sm-6 col-xs-12">
-        <h3 class="theme-headdings">Our Location</h3>
-        <div class="map-box pad-top30">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58688.52838183012!2d75.76220078690069!3d23.168994778895325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39637469de00ff23%3A0x7f82abdf7899d412!2sUjjain%2C+Madhya+Pradesh!5e0!3m2!1sen!2sin!4v1496899778413" width="600" height="465"></iframe>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-12 siad-bar-sec">
+    .col-md-6.col-sm-6.col-xs-12
+      h3.theme-headdings = t('.our_location')
+      .map-box.pad-top30
+        iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58688.52838183012!2d75.76220078690069!3d23.168994778895325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39637469de00ff23%3A0x7f82abdf7899d412!2sUjjain%2C+Madhya+Pradesh!5e0!3m2!1sen!2sin!4v1496899778413" width="600" height="465"
+    .col-md-6.col-sm-6.col-xs-12.siad-bar-sec
         <h3 class="theme-headdings">Leave Us Message</h3>
-        <div class="row pad-top25">
-            <div class="col-md-12 col-sm-12 col-xs-12 Profile setting box">
-                <p>
-                    <label>Subject</label>
-                    <input type="text" class="search_terms" placeholder="">
-                </p>
-                <p>
-                    <label>Message</label>
-                    <textarea cols="10" rows="11" placeholder="" id="order_comments" class="form-controller search_terms" name="order_comments"></textarea>
-                </p>
-                <button type="button" class="itg-button mar-top20">Send Message</button>
-            </div>
-        </div>
-    </div>
+        .row.pad-top25
+          .col-md-12.col-sm-12.col-xs-12.Profile.setting.box
+            = form_tag '/contacts' do
+              p
+                label = t('.subject')
+                = text_field_tag :subject, nil, class: "search_terms", required: true
+              p
+                label = t('.message')
+                = text_area_tag :message, nil, rows: "11", class: "form-controller search_terms",
+                  required: true
+              = submit_tag t('.send_message'), class: 'itg-button mar-top20'
 
-  <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="contact-loction-box">
-                <span class="loction-icon-box"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                <h4 class="theme-headdings text-center address-title">Location And Detail</h4>
-                <p>12,Civil Line dewas,near Chamunda<br>Complex dewas(M.P) 455001</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 responsive-top">
-            <div class="contact-loction-box">
-                <span class="loction-icon-box"><i class="fa fa-rocket" aria-hidden="true"></i></span>
-                <h4 class="theme-headdings text-center address-title">Address Details</h4>
-                <p>12, Civil Line dewas<br>Complex dewas (M.P.) 455001</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12 responsive-top">
-            <div class="contact-loction-box">
-                <span class="loction-icon-box"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                <h4 class="theme-headdings text-center address-title">Mail Us</h4>
-                <p>info@itgeeks.com<br>registration@itgeeks.com</p>
-            </div>
-        </div>
-    </div>
-</div>
+
+  .col-md-12.col-sm-12.col-xs-12
+    .row
+      <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="contact-loction-box">
+              <span class="loction-icon-box"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <h4 class="theme-headdings text-center address-title">Location And Detail</h4>
+              <p>12,Civil Line dewas,near Chamunda<br>Complex dewas(M.P) 455001</p>
+          </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 responsive-top">
+          <div class="contact-loction-box">
+              <span class="loction-icon-box"><i class="fa fa-rocket" aria-hidden="true"></i></span>
+              <h4 class="theme-headdings text-center address-title">Address Details</h4>
+              <p>12, Civil Line dewas<br>Complex dewas (M.P.) 455001</p>
+          </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 responsive-top">
+          <div class="contact-loction-box">
+              <span class="loction-icon-box"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+              <h4 class="theme-headdings text-center address-title">Mail Us</h4>
+              <p>info@itgeeks.com<br>registration@itgeeks.com</p>
+          </div>
+      </div>
