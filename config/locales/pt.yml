@@ -133,3 +133,14 @@ pt:
       go_home: Go Home
       404_error: 404 error
       home: Home
+  pages:
+    contact:
+      contact: Contact
+      home: Home
+      message: Message
+      our_location: Our Location
+      send_message: Send Message
+      subject: Subject
+  contacts:
+    create:
+      your_message_has_been_sent: Your message has been sent. We will respond as soon as possible. Thank you!
