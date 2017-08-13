@@ -99,6 +99,9 @@ Rails.application.configure do
     ssl: true
   }
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.default_url_options = {}
+  config.action_mailer.default_url_options = {
+    protocol: 'https',
+    host: 'hotelia.herokuapp.com'
+  }
   # config.action_mailer.default_options = {}
 end
