@@ -17,13 +17,13 @@ class CartItemsController < BaseController
     else
       flash[:danger] = t(".create_cart_item_failure")
     end
-    redirect_to request.referer
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     cart_item = current_user.cart_items.find params[:id]
     cart_item.destroy
-    redirect_to request.referer
+    redirect_back(fallback_location: root_path)
   end
 
   private

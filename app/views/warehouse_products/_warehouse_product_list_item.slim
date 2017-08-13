@@ -6,14 +6,11 @@
         .products-boxes
           ul.icon-hover
             li
-              a data-target="#myModal" data-toggle="modal" href="#"
+              = link_to warehouse_product_path(warehouse_product) do
                 i.fa.fa-eye aria-hidden="true"
             li
-              a href="product-detail.html"
+              = link_to cart_items_path(cart_item: {quantity: 1, warehouse_product_id: warehouse_product.id}), method: :post do
                 i.fa.fa-shopping-cart aria-hidden="true"
-            li
-              a href="#"
-                i.fa.fa-heart aria-hidden="true"
     .col-md-8.col-sm-8.col-xs-12.box-list-page
       .pad-bottom10.figure-boxx.figure-section-hover
         h4.theme-headdings.text-left.pad-top10

@@ -9,7 +9,7 @@
     h3.theme-headdings.text-left.product-detail-title
       = @warehouse_product.product.name
     .per-box.texy-left.mar-top15
-      p = @warehouse_product.product.description
+      = simple_format @warehouse_product.product.description.to_s
     .head-medial-text.pad-top10
       p
         = t(".availability")
