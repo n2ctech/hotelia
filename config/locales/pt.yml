@@ -126,3 +126,10 @@ pt:
       quantity: quantity
       total: Total
       order: Order
+  errors:
+    error404:
+      page_not_found: Page Not Found
+      description: The page you are looking for have been deleted or does not exist.
+      go_home: Go Home
+      404_error: 404 error
+      home: Home
