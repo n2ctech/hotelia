@@ -89,13 +89,8 @@ header
                   li
                     = render partial: "layouts/categories"
                   li
-                    = link_to 'FAQs', page_path('faq')
-                  li
                     = link_to t(".orders"), orders_path
-                  li
-                    = link_to 'Terms and Conditions', page_path('terms_and_conditions')
-                  li
-                    = link_to t('.contact'), page_path('contact')
+
               /! navbar-collapse
             .col-md-4.col-sm-4.col-xs-9.hidden-xs
               .icons-section.pad-top20.pull-right
@@ -112,8 +107,6 @@ header
                       i.fa.fa-user aria-hidden="true"
                     .login-section
                       ul.pad-10
-                        li
-                          a href="" = t(".my_account")
                         li
                           = link_to t(".logout"), destroy_user_session_path, method: :delete
                   li.hidden-xs.hover-mini-cart
