@@ -15,15 +15,22 @@ es:
     header:
       home: Home
       logout: Logout
-      my_account: My account
       products: Products
-      contact: Contact
       orders: Orders
+      search: Search
     cart_info:
       confirm_destroy: Are you sure?
       total: Total
       view_cart: View cart
       checkout: Checkout
+    categories:
+      category: Category
+    footer:
+      contact: Contact
+      logout: Log out
+      my_orders: My Orders
+      terms_and_conditions: Terms and Conditions
+      view_cart: View Cart
   warehouse_products:
     index:
       brand: Brand
@@ -52,6 +59,7 @@ es:
       tags: Tags
       description: Description
       price: Price
+      features: Features
   carts:
     show:
       actions: Actions
