@@ -1,0 +1,17 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".404_error")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".404_error")
+
+.row
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12.col-xs-offset-0
+    .boxs-404
+      figure
+        = image_tag 'all/404.png', class: 'dark-404'
+      h2.pad-top20.boxs-404-text.theme-headdings = t('.page_not_found')
+      h4 = t('.description')
+      = link_to t('.go_home'), root_path, class: 'itg-button mar-top20'

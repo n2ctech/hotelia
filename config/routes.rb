@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: "warehouse_products#index"
+  match '/404' => 'errors#error404', via: [ :get, :post, :patch, :delete ]
+
+  root to: 'warehouse_products#index'
 
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
