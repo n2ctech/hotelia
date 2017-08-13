@@ -8,17 +8,6 @@ Primary style
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: sans-serif;
-  color: #111433;
-  background-color: #ffffff;
-}
-
 a {
   /* color: #3f8654; */
   text-decoration: none;

@@ -99,7 +99,7 @@ header
                     .search-box-top-bar
                       = search_form_for @q || WarehouseProduct.ransack do |f|
                         = f.search_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont",
-                          placeholder: t(".search")
+                          placeholder: t(".search"), class: 'search_terms'
                         button.button-style type="submit" value=""
                           i.fa.fa-search aria-hidden="true"
                   li.hidden-xs.login-box-man
