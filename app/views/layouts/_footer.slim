@@ -58,64 +58,24 @@ footer
               li
                 a href="#"  About Us
               li
-                a href="#"  Customer Service
+                = link_to 'FAQs', page_path('faq')
               li
-                a href="#"  Privacy Policy
+                = link_to t('.terms_and_conditions'), page_path('terms_and_conditions')
               li
-                a href="#"  Site Map
-              li
-                a href="#"  Advanced Search
-              li
-                a href="#"  Orders and Returns
-              li
-                a href="#"  Contact Us
+                = link_to t('.contact'), page_path('contact')
         .col-md-3.col-sm-6.col-xs-12.responsive-top
           .footer-section2
             h4.footer-head-line My Account
             ul.footer-box2.pad-top15
               li
-                a href="#"  Sign In
+                = link_to t('.view_cart'), cart_path
               li
-                a href="#"  View Cart
+                = link_to t(".my_orders"), orders_path
               li
-                a href="#"  My Wishlist
-              li
-                a href="#"  Private Policy
-              li
-                a href="#"  Shipping &amp; Returns
-              li
-                a href="#"  Track My Order
-              li
-                a href="#"  Help
+                = link_to t(".logout"), destroy_user_session_path, method: :delete
         .col-md-3.col-sm-6.col-xs-12.responsive-top
           .footer-section1
             h4.footer-head-line Newsletter
-            p Sign up for our mailing list to get latest updates and offers.
-            .search-box-1.mar-bottom15
-              input.search_terms name="search" placeholder=("Email address") type="text" /
-              button.button-style type="submit" value=""
-                i.fa.fa-paper-plane aria-hidden="true"
-            p We respect your privacy
-            .icons-section
-              ul
-                li.footer-icon-left
-                  a.mini-cart-icon href=""
-                    i.fa.fa-twitter aria-hidden="true"
-                li
-                  a.mini-cart-icon href=""
-                    i.fa.fa-facebook aria-hidden="true"
-                li
-                  a.mini-cart-icon href=""
-                    i.fa.fa-dribbble aria-hidden="true"
-                li
-                  a.mini-cart-icon href=""
-                    i.fa.fa-instagram aria-hidden="true"
-                li
-                  a.mini-cart-icon href=""
-                    i.fa.fa-pinterest aria-hidden="true"
+            p Coming soon
     .footer-bottom-bar.pad-top-bottom25
-      p
-        | Copyright © 2017 Responsive  Theme -
-        span.footer-text Furniturecraft
-        | and All Rights Reserved. Designed by
-        span.footer-text Company Name
+      p Copyright © 2017 Hotelia
