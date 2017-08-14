@@ -1,7 +1,7 @@
 class Image < ApplicationRecord
   mount_uploader :file, ::ImageUploader
 
-  belongs_to :attachable, polymorphic: true
+  belongs_to :attachable, polymorphic: true, optional: true
 
   def thumb_url
     file&.thumb&.url

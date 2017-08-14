@@ -1,0 +1,14 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".about_us")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".about_us")
+
+.row
+  .message-box-sec1.pad-bottom80
+    .col-md-8.col-md-offset-2.col-sm-12.col-xs-12
+      br
+      = Page.about_us.content.html_safe
