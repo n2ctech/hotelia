@@ -1,0 +1,15 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".privacy_policy")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".privacy_policy")
+
+.row
+  .message-box-sec1.pad-bottom80
+    .col-md-8.col-md-offset-2.col-sm-12.col-xs-12
+      h2.theme-headdings.text-center = Page.privacy_policy.title
+      br
+      = Page.privacy_policy.content.to_s.html_safe
