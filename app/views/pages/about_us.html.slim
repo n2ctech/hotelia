@@ -10,5 +10,4 @@
 .row
   .message-box-sec1.pad-bottom80
     .col-md-8.col-md-offset-2.col-sm-12.col-xs-12
-      br
-      = Page.about_us.content.html_safe
+      = Page.about_us.content.to_s.html_safe
