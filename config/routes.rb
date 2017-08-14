@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :tags
   resources :orders, param: :uid
   resources :contacts, only: :create
+  resources :images, only: :create
+
+  get "/pages/*id" => 'pages#show', as: :page, format: false
 
   patch 'change_locale/:locale', to: 'settings#change_locale', as: :change_locale
   patch 'change_currency/:currency', to: 'settings#change_currency', as: :change_currency

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810135023) do
+ActiveRecord::Schema.define(version: 20170814042115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,19 @@ ActiveRecord::Schema.define(version: 20170810135023) do
     t.float "items_total"
     t.index ["uid"], name: "index_orders_on_uid"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title_en", default: "", null: false
+    t.string "title_es", default: "", null: false
+    t.string "title_pt", default: "", null: false
+    t.text "content_en", default: "", null: false
+    t.text "content_es", default: "", null: false
+    t.text "content_pt", default: "", null: false
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_pages_on_key", unique: true
   end
 
   create_table "products", force: :cascade do |t|

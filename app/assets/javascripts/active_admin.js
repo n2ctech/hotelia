@@ -3,6 +3,14 @@
 //= require bootstrap-tagsinput
 //= require select2.full.min
 
+//= require redactor
+//= require redactor/source
+//= require redactor/codemirror
+//= require redactor/alignment
+//= require redactor/table
+//= require redactor/video
+//= require redactor/imagelink
+
 $(document).ready(function() {
   // Tags Input
   var tags = new Bloodhound({
@@ -31,5 +39,13 @@ $(document).ready(function() {
   $(".select2").select2();
   $(".button.has_many_add").click(function() {
     setTimeout(function(){$(".select2").select2()}, 300);
+  });
+
+  // Redactor editor
+  $('#page_content_en, #page_content_es, #page_content_pt').redactor({
+    plugins: ['inlinestyle', 'alignment', 'table', 'video', 'textexpander', 'imagelink'],
+    imageUpload: '/images',
+    imageResizable: true,
+    imagePosition: true
   });
 })

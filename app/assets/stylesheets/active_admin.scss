@@ -43,3 +43,11 @@
     box-shadow: none !important;
   }
 }
+
+@import "redactor";
+@import "redactor/alignment";
+
+.redactor-box {
+  width: calc(80%);
+  margin-left: calc(20%)
+}

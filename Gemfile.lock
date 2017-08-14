@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/nguyenducgiang/redactor2.git
+  revision: cf6225743ca4efb8374efd2020c9860d7b832ed7
+  branch: 2.9.0
+  specs:
+    redactor2 (2.8.0)
+
+GIT
   remote: https://github.com/plataformatec/devise.git
   revision: 71fc5b351a8e8473733b0ca29d60c06e43a0efe1
   specs:
@@ -339,6 +346,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.2)
   ransack
+  redactor2!
   rmagick
   rollbar
   sass-rails (~> 5.0)
