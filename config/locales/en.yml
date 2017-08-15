@@ -24,7 +24,7 @@ en:
       view_cart: View cart
       checkout: Checkout
     categories:
-      category: Category
+      categories: Categories
     footer:
       contact: Contact
       logout: Log out
@@ -47,8 +47,6 @@ en:
       supplier: Supplier
       filter: Filter
       filter_by_price: Filter by price
-      greater_than: Greater than
-      less_than: Less than
       name: Name
       price: Price
       tag: Tag
@@ -126,6 +124,10 @@ en:
       quantity: quantity
       total: Total
       order: Order
+  pages:
+    contact:
+      contact: Contact
+      home: Home
   errors:
     error404:
       page_not_found: Page Not Found

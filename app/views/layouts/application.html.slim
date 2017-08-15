@@ -9,6 +9,8 @@ html
     = render "layouts/header"
     .pad-bottom80.pad-top80.blog-griad
       .container
+        #currency.hidden
+          = current_user&.currency || User::USD
         = flash_messages
         = yield
     = render "layouts/footer"
