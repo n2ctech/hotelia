@@ -5,8 +5,9 @@ class Product < ApplicationRecord
 
   belongs_to :brand
   belongs_to :supplier
-  belongs_to :subcategory
-  belongs_to :collection
+  belongs_to :subcategory, optional: true
+  belongs_to :category
+  belongs_to :collection, optional: true
   has_many :images, as: :attachable
   has_one :first_image, class_name: Image.to_s, as: :attachable
   has_and_belongs_to_many :tags
@@ -14,7 +15,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, reject_if: :all_blank,
     allow_destroy: true
 
-  before_save :set_categories, if: :subcategory_id_changed?
+  before_validation :set_categories
 
   def all_tags= names
     self.tags = names.split(',').map do |name|
@@ -29,7 +30,9 @@ class Product < ApplicationRecord
   private
 
   def set_categories
-    self.category_id = subcategory&.category_id
+    if subcategory.present?
+      self.category_id = subcategory.category_id
+    end
     self.subfamily_id = Category.find_by(id: category_id)&.subfamily_id
     self.family_id = Subfamily.find_by(id: subfamily_id)&.family_id
   end

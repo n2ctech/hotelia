@@ -11,6 +11,7 @@ ActiveAdmin.register Product do
     column :code
     column :brand
     column :supplier
+    column :category
     column :subcategory
     column :collection
     actions
@@ -22,6 +23,7 @@ ActiveAdmin.register Product do
       row :code
       row :brand
       row :supplier
+      row :category
       row :subcategory
       row :collection
       row :description
@@ -42,6 +44,7 @@ ActiveAdmin.register Product do
       f.input :code
       f.input :brand
       f.input :supplier
+      f.input :category
       f.input :subcategory
       f.input :collection
       f.input :all_tags
