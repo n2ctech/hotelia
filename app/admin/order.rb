@@ -3,6 +3,7 @@ ActiveAdmin.register Order do
     order_items_attributes: [
       :id,
       :warehouse_product_id,
+      :price,
       :quantity,
       :_destroy
     ]
@@ -34,7 +35,7 @@ ActiveAdmin.register Order do
       f.has_many :order_items, new_record: true, allow_destroy: true do |order_item|
         order_item.input :warehouse_product, input_html: {class: "select2"}
         order_item.input :quantity
-        order_item.input :price, input_html: { disabled: true }
+        order_item.input :price
         order_item.input :total, input_html: { disabled: true }
       end
     end
