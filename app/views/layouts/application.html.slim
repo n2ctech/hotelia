@@ -5,6 +5,7 @@ html
     title Hotelia
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   body
     = render "layouts/header"
     .pad-bottom80.pad-top80.blog-griad
@@ -14,4 +15,3 @@ html
         = flash_messages
         = yield
     = render "layouts/footer"
-    = javascript_include_tag 'application'

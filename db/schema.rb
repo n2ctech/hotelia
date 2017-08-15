@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814042115) do
+ActiveRecord::Schema.define(version: 20170815075508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,17 @@ ActiveRecord::Schema.define(version: 20170814042115) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_products_tags_on_product_id"
     t.index ["tag_id"], name: "index_products_tags_on_tag_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question_en", default: "", null: false
+    t.text "answer_en", default: "", null: false
+    t.string "question_es", default: "", null: false
+    t.text "answer_es", default: "", null: false
+    t.string "question_pt", default: "", null: false
+    t.text "answer_pt", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subcategories", force: :cascade do |t|

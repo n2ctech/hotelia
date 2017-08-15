@@ -42,7 +42,7 @@ $(document).ready(function() {
   });
 
   // Redactor editor
-  $('#page_content_en, #page_content_es, #page_content_pt').redactor({
+  $('#page_content_en, #page_content_es, #page_content_pt, #question_answer_en, #question_answer_es, #question_answer_pt').redactor({
     plugins: ['inlinestyle', 'alignment', 'table', 'video', 'textexpander', 'imagelink'],
     imageUpload: '/images',
     imageResizable: true,
