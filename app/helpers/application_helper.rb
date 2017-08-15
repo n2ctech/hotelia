@@ -38,12 +38,13 @@ module ApplicationHelper
     current_user.cart_items.map do |item|
       item_price = item.total(cart_currency)
       return 0 if item_price.to_f == 0
+      item_price
     end.sum
   end
 
   def formatted_cart_total
     total = cart_total
-    if total == 0
+    if total == 0 && current_user.cart_items.length > 0
       return I18n.t("helper.ask_for_price")
     else
       format_price cart_currency, total
