@@ -57,54 +57,54 @@
                       = f.search_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont", placeholder: t(".search")
                       button.button-style type="submit" value=""
                         i.fa.fa-search aria-hidden="true"
-                  = search_form_for @q, class: "form-horizontal" do |f|
-                    = f.hidden_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont"
-                    /! //==Categories Start==//
-                    .col-md-12
-                      .Categories
-                        h4.theme-headdings = t(".filter_details")
-                        .form-group
-                          .col-sm-12
-                            = t(".supplier")
-                          .col-sm-12
-                            = f.collection_select :product_supplier_id_in,
-                              Supplier.all, :id, :name, {},
-                              {multiple: true, class: "form-control select2"}
-                        .form-group
-                          .col-sm-12
-                            = t(".brand")
-                          .col-sm-12
-                            = f.collection_select :product_brand_id_in,
-                              Brand.all, :id, :name, {},
-                              {multiple: true, class: "form-control select2"}
-                        .form-group
-                          .col-sm-12
-                            = t(".collection")
-                          .col-sm-12
-                            = f.collection_select :product_collection_id_in,
-                              Collection.all, :id, :name, {},
-                              {multiple: true, class: "form-control select2"}
-                        .form-group
-                          .col-sm-12
-                            = t(".tag")
-                          .col-sm-12
-                            = f.collection_select :product_tags_id_in,
-                              Tag.all, :id, :name, {},
-                              {multiple: true, class: "form-control select2"}
-                    .col-md-12.col-sm-12.col-xs-12
-                      h4.theme-headdings.mar-bottom30 = t(".filter_by_price")
+                = search_form_for @q, class: "form-horizontal" do |f|
+                  = f.hidden_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont"
+                  /! //==Categories Start==//
+                  .col-md-12
+                    .Categories
+                      h4.theme-headdings = t(".filter_details")
                       .form-group
-                        .col-sm-6
-                          = t(".greater_than")
-                        .col-sm-6
-                          = f.search_field "price_after_discount_#{current_user.currency.downcase}_gteq", class: "form-control"
+                        .col-sm-12
+                          = t(".supplier")
+                        .col-sm-12
+                          = f.collection_select :product_supplier_id_in,
+                            Supplier.all, :id, :name, {},
+                            {multiple: true, class: "form-control select2"}
                       .form-group
-                        .col-sm-6
-                          = t(".less_than")
-                        .col-sm-6
-                          = f.search_field "price_after_discount_#{current_user.currency.downcase}_lteq", class: "form-control"
-                      .form-group.mar-top30
-                        .col-md-6.col-sm-6.col-xs-6
-                          button.itg-button type="submit" = t(".filter")
+                        .col-sm-12
+                          = t(".brand")
+                        .col-sm-12
+                          = f.collection_select :product_brand_id_in,
+                            Brand.all, :id, :name, {},
+                            {multiple: true, class: "form-control select2"}
+                      .form-group
+                        .col-sm-12
+                          = t(".collection")
+                        .col-sm-12
+                          = f.collection_select :product_collection_id_in,
+                            Collection.all, :id, :name, {},
+                            {multiple: true, class: "form-control select2"}
+                      .form-group
+                        .col-sm-12
+                          = t(".tag")
+                        .col-sm-12
+                          = f.collection_select :product_tags_id_in,
+                            Tag.all, :id, :name, {},
+                            {multiple: true, class: "form-control select2"}
+                  .col-md-12.col-sm-12.col-xs-12
+                    h4.theme-headdings.mar-bottom30 = t(".filter_by_price")
+                    .form-group
+                      .col-sm-6
+                        = t(".greater_than")
+                      .col-sm-6
+                        = f.search_field "price_after_discount_#{current_user.currency.downcase}_gteq", class: "form-control"
+                    .form-group
+                      .col-sm-6
+                        = t(".less_than")
+                      .col-sm-6
+                        = f.search_field "price_after_discount_#{current_user.currency.downcase}_lteq", class: "form-control"
+                    .form-group.mar-top30
+                      .col-md-6.col-sm-6.col-xs-6
+                        button.itg-button type="submit" = t(".filter")
                 .clear
   /! //==blog section End==//
