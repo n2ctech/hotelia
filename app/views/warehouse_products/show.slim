@@ -1,3 +1,12 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = @warehouse_product.product.name
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = @warehouse_product.product.name
+
 .row
   .col-md-5.col-sm-5.col-xs-12
     .row
@@ -58,4 +67,4 @@
       .Profile.setting.box.text.border.pad-20.light-grey-background
         = simple_format @warehouse_product.product.features.to_s
 
-// = render partial: "related_products"
+= render partial: "related_products"
