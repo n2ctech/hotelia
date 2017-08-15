@@ -12,4 +12,4 @@
     figcaption.figure-boxx.figure-section-hover
       h4.theme-headdings.text-center.pad-top10
         = link_to warehouse_product.product_name, warehouse_product_path(warehouse_product)
-      p = warehouse_product.decorate.formatted_price_after_discount current_user.currency
+      = render partial: "warehouse_product_price", locals: {warehouse_product: warehouse_product}

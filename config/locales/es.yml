@@ -60,11 +60,15 @@ es:
       product_code: Product code
       tags: Tags
       description: Description
-      price: Price
       features: Features
       home: Home
     related_products:
       related_products: Related Products
+    warehouse_product_price:
+      ask_for_price: Ask for price
+      old_price: Old price
+      price: Price
+      saving: saving
   carts:
     show:
       actions: Actions
@@ -182,3 +186,7 @@ es:
     update:
       wrong_password: Current password is wrong!
       success: You info has been updated successfully!
+  decorator:
+    ask_for_price: Ask for price
+  helper:
+    ask_for_price: Ask for price

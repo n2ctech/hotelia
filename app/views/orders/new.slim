@@ -48,7 +48,7 @@
                         .order-table-cell
                           .col-md-4.col-sm-6.col-xs-12.col-xs-12
                             = link_to warehouse_product_path(warehouse_product) do
-                              = image_tag(warehouse_product.product_first_image&.file_url)
+                              = image_tag(warehouse_product.product.decorate.file_url)
                           .col-md-8.col-sm-12.col-xs-12.pad-left0
                             h4.product-title
                               a[href=""]
@@ -96,7 +96,7 @@
                 strong.col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
                   = t(".order_total")
                 strong.col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box.pre
-                  = format_price cart_currency, cart_total
+                  = formatted_cart_total
                 .clear
       .row.pad-top20
         .col-md-12

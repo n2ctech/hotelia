@@ -37,11 +37,9 @@
         span.Products-in-stock
           = render partial: "tags", locals: {tags: @warehouse_product.product.tags}
     .head-medial-text.pad-top10
-      p
-        = t(".price")
-        | : &nbsp;
-        span.Products-in-stock
-          = @warehouse_product.decorate.formatted_price_after_discount current_user.currency
+      span.Products-in-stock
+        = render partial: "warehouse_product_price",
+          locals: {warehouse_product: @warehouse_product, show_label: true}
 
     = form_for :cart_item, url: cart_items_path do |f|
       = f.hidden_field :warehouse_product_id, value: @warehouse_product.id
