@@ -1,0 +1,41 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".my_account")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".my_account")
+
+.row.Profile.setting.box
+  = form_for current_user, url: account_path, method: :patch do |f|
+    - if current_user.errors.any?
+      .col-md-12.alert.alert-danger.fade.in
+        button.close data-dismiss="alert" x
+        p Please correct the following errors
+        ul
+          - current_user.errors.full_messages.each do |message|
+            li = message
+    .col-sm-6.col-xs-12
+      .form-group
+        = f.label :email, t('.email')
+        = f.email_field :email, required: true
+      .form-group
+        = f.label :locale, t('.locale')
+        = f.select :locale, {'English' => 'en', 'Español' => 'es', 'Português' => 'pt'}
+      .form-group
+        = f.label :currency, t('.currency')
+        = f.select :currency, %w[ EUR USD CVE ]
+
+    .col-sm-6.col-xs-12
+      .form-group
+        = f.label :current_password, t('.current_password')
+        = f.password_field :current_password, required: true
+      .form-group
+        = f.label :password, t('.new_password')
+        = f.password_field :password
+      .form-group
+        = f.label :password_confirmation, t('.new_password_confirmation')
+        = f.password_field :password_confirmation
+      .form-group
+        = f.submit t('.submit'), class: 'itg-button'

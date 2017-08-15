@@ -13,7 +13,7 @@
       - @related_products.each do |warehouse_product|
         .col-md-3.col-sm-6.col-xs-12
           figure.itg-hover-style2
-            = image_tag "Products/Products1.png", alt: ""
+            = image_tag(warehouse_product.product.decorate.thumb_url.to_s, alt: "")
             .products-boxes
               ul.icon-hover
                 li
