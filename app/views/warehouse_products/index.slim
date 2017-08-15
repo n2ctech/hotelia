@@ -33,8 +33,9 @@
                     .page-tool-box.page-tool-box-right.billing-box.select.sow-page-secton.drop-box-sec.boxx
                       span = t(".sort_by")
                       | &nbsp;
-                      = sort_link(@q, :product_name, t(".name"), default_order: :asc)
-                      = sort_link(@q, :price_after_discount, t(".price"), default_order: :asc)
+                      = sort_link(@q, "product_name_#{I18n.locale}", t(".name"), default_order: :asc)
+                      = sort_link(@q, "price_after_discount_#{current_user.currency.downcase}",
+                        t(".price"), default_order: :asc)
                 #productsgriads.products.mar-top30
                   - @warehouse_products.each do |warehouse_product|
                     = render partial: "warehouse_product_grid_item",
