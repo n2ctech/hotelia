@@ -31,6 +31,8 @@ en:
       my_orders: My Orders
       terms_and_conditions: Terms and Conditions
       view_cart: View Cart
+      privacy_policy: Privacy Policy
+      orders_and_returns: Orders and Returns
   warehouse_products:
     index:
       brand: Brand
@@ -141,6 +143,21 @@ en:
       our_location: Our Location
       send_message: Send Message
       subject: Subject
+    about_us:
+      about_us: About Us
+      home: Home
+    faq:
+      faqs: FAQs
+      home: Home
+    orders_and_returns:
+      orders_and_returns: Order and Returns
+      home: Home
+    privacy_policy:
+      privacy_policy: Privacy Policy
+      home: Home
+    terms_and_conditions:
+      terms_and_conditions: Terms and Conditions
+      home: Home
   contacts:
     create:
       your_message_has_been_sent: Your message has been sent. We will respond as soon as possible. Thank you!

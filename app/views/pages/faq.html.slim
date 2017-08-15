@@ -1,0 +1,22 @@
+= content_for :breadcrumb
+  h3.heading-breadcrumb.box-z.text-center = t(".faqs")
+  .clear
+  .breadcrumb-box
+    ul.breadcrumb
+      li
+        a.sab-heading-breadcrumb.box-z href="/" = t(".home")
+        li.heading-wa.box-z.activ = t(".faqs")
+
+.row.faq-section.bar
+  .col-sm-8.col-sm-offset-2
+    #faqs.marB30.ui-accordion.ui-widget.ui-helper-reset role="tablist"
+      - Question.all.each do |question|
+        h3 class="ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons" role="tab" id="ui-id-#{question.id}-1" aria-controls="ui-id-#{question.id}-2" aria-selected="true" aria-expanded="true" tabindex="0"
+          = question.question
+        .ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content id="ui-id-#{question.id}-2" aria-labelledby="ui-id-#{question.id}-1" role="tabpanel" aria-hidden="false"
+          = question.answer.html_safe
+
+javascript:
+  $(document).ready(function() {
+    $('#faqs').accordion();
+  })
