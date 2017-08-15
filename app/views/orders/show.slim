@@ -47,7 +47,7 @@
                       .order-table-cell
                         .col-md-4.col-sm-6.col-xs-12.col-xs-12
                           = link_to warehouse_product_path(warehouse_product) do
-                            = image_tag(warehouse_product.product_first_image&.file_url)
+                            = image_tag(warehouse_product.product.decorate.file_url)
                         .col-md-8.col-sm-12.col-xs-12.pad-left0
                           h4.product-title
                             = link_to warehouse_product.product_name,

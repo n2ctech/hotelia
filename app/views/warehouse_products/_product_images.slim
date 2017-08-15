@@ -1,9 +1,8 @@
-- if warehouse_product.product.images.length > 0
-  .col-md-10.col-sm-10.col-xs-12.pull-right
-    figure.product-img
-      - image_path = @warehouse_product.product.first_image&.file_url
-      a.fancybox[href=image_path data-fancybox-group="group"]
-        = image_tag image_path
+.col-md-10.col-sm-10.col-xs-12.pull-right
+  figure.product-img
+    - image_path = @warehouse_product.product.decorate.file_url
+    a.fancybox[href=image_path data-fancybox-group="group"]
+      = image_tag image_path
 
 - if warehouse_product.product.images.length > 1
   .col-md-2.col-sm-2.col-xs-2.popap-open.hidden-xs

@@ -45,7 +45,7 @@ module ApplicationHelper
   def formatted_cart_total
     total = cart_total
     if total == 0 && current_user.cart_items.length > 0
-      return I18n.t("helper.ask_for_price")
+      I18n.t("helper.ask_for_price")
     else
       format_price cart_currency, total
     end
