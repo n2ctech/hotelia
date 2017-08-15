@@ -16,7 +16,8 @@
         .ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content id="ui-id-#{question.id}-2" aria-labelledby="ui-id-#{question.id}-1" role="tabpanel" aria-hidden="false"
           = question.answer.html_safe
 
-javascript:
-  $(document).ready(function() {
-    $('#faqs').accordion();
-  })
+- content_for :javascript do
+  javascript:
+    $(document).ready(function() {
+      $('#faqs').accordion();
+    })

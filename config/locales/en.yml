@@ -60,6 +60,9 @@ en:
       description: Description
       price: Price
       features: Features
+      home: Home
+    related_products:
+      related_products: Related Products
   carts:
     show:
       actions: Actions
