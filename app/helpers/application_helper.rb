@@ -35,6 +35,18 @@ module ApplicationHelper
   end
 
   def cart_total
-    current_user.cart_items.map{|i| i.total(cart_currency)}.sum
+    current_user.cart_items.map do |item|
+      item_price = item.total(cart_currency)
+      return 0 if item_price.to_f == 0
+    end.sum
+  end
+
+  def formatted_cart_total
+    total = cart_total
+    if total == 0
+      return I18n.t("helper.ask_for_price")
+    else
+      format_price cart_currency, total
+    end
   end
 end

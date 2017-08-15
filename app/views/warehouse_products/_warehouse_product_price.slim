@@ -1,0 +1,28 @@
+- if warehouse_product.decorate.price(current_user.currency).to_f == 0
+  p
+    - if local_assigns[:show_label]
+      => t(".price")
+      | :
+    =< t(".ask_for_price")
+- elsif warehouse_product.decorate.discount(current_user.currency).to_f > 0
+  p
+    => t(".old_price")
+    | :
+    span.text-line-through.text-muted
+      =< format_price(current_user.currency, warehouse_product.decorate.price(current_user.currency))
+  p
+    => t(".price")
+    | :
+    span.text-danger
+      =< warehouse_product.decorate.formatted_price_after_discount current_user.currency
+  p
+    => t(".saving")
+    | :
+    span.text-danger
+      =< warehouse_product.decorate.saving current_user.currency
+- else
+  p
+    - if local_assigns[:show_label]
+      => t(".price")
+      | :
+    =< warehouse_product.decorate.formatted_price_after_discount current_user.currency
