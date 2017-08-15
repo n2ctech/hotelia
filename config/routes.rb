@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :orders, param: :uid
   resources :contacts, only: :create
   resources :images, only: :create
+  resource :account, path: :my_account
 
   get "/pages/*id" => 'pages#show', as: :page, format: false
 

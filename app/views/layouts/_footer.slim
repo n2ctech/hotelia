@@ -72,6 +72,8 @@ footer
             h4.footer-head-line My Account
             ul.footer-box2.pad-top15
               li
+                = link_to t('.my_account'), account_path
+              li
                 = link_to t('.view_cart'), cart_path
               li
                 = link_to t(".my_orders"), orders_path

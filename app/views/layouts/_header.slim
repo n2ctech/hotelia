@@ -108,6 +108,8 @@ header
                     .login-section
                       ul.pad-10
                         li
+                          = link_to t('.my_account'), account_path
+                        li
                           = link_to t(".logout"), destroy_user_session_path, method: :delete
                   li.hidden-xs.hover-mini-cart
                     = render "layouts/cart_info"

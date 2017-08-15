@@ -56,3 +56,13 @@
 .light-grey-background {
   background: #f1f1f1;
 }
+
+.Profile.setting select {
+  border: 1px solid #f1f1f1;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.Profile.setting select:focus {
+  border-color: #1bbc9b;
+}

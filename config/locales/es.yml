@@ -18,6 +18,7 @@ es:
       products: Products
       orders: Orders
       search: Search
+      my_account: My Account
     cart_info:
       confirm_destroy: Are you sure?
       total: Total
@@ -33,6 +34,7 @@ es:
       view_cart: View Cart
       privacy_policy: Privacy Policy
       orders_and_returns: Orders and Returns
+      my_account: My Account
   warehouse_products:
     index:
       brand: Brand
@@ -166,3 +168,17 @@ es:
   contacts:
     create:
       your_message_has_been_sent: Your message has been sent. We will respond as soon as possible. Thank you!
+  accounts:
+    show:
+      email: Email
+      home: Home
+      my_account: My Account
+      submit: Update Info
+      currency: Currency
+      locale: Language
+      current_password: Current Password
+      new_password: New Password
+      new_password_confirmation: New Password Confirmation
+    update:
+      wrong_password: Current password is wrong!
+      success: You info has been updated successfully!
