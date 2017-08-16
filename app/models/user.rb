@@ -6,6 +6,7 @@ class User < ApplicationRecord
   belongs_to :hotel
   has_many :cart_items
   has_many :orders
+  has_many :quote_orders
 
   EUR = "EUR"
   USD = "USD"

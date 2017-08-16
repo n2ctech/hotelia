@@ -1,0 +1,25 @@
+link[rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"]
+h3
+  | Quote order info
+.row
+  .col-md-10
+    table.table
+      thead
+        tr
+          th = "Product"
+          th = "Price"
+          th = "Quantity"
+          th = "Total"
+      tbody
+        - @quote_order.order_items.each do |order_item|
+          tr
+            td = order_item.product.name
+            td = order_item.decorate.formatted_price
+            td = order_item.quantity
+            td = order_item.decorate.formatted_total
+row.pad-top20
+  .col-md-10
+    .pull-right
+      label
+        | Order total :
+      =< @quote_order.decorate.formatted_total

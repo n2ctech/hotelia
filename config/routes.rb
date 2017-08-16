@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :cart
   resources :tags
   resources :orders, param: :uid
+  resources :quote_orders, only: :create
   resources :contacts, only: :create
   resources :images, only: :create
   resource :account, path: :my_account
