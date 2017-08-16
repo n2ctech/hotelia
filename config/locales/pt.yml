@@ -20,6 +20,7 @@ pt:
       search: Search
       my_account: My Account
     cart_info:
+      get_a_quote: Get a quote
       confirm_destroy: Are you sure?
       total: Total
       view_cart: View cart
@@ -79,18 +80,14 @@ pt:
       quantity: Quantity
       total: Total
       update_cart: Update cart
-      process_to_checkout: Process to checkout
+      checkout: Checkout
+      get_a_quote: Get a quote
       cart: Cart
       cart_info: Cart info
       home: Home
     update:
       update_cart_failure: Update cart failure
       update_cart_success: Update cart success
-  orders:
-    new:
-      back_to_cart: Back to cart
-      create_order: Create order
-      confirm_destroy: Are you sure ?
   cart_items:
     create:
       create_cart_item_failure: Create cart item failure
@@ -120,7 +117,7 @@ pt:
       quantity: Quantity
       total: Total
       back_to_cart: Back to cart
-      confirm_destroy: Confirm destroy
+      confirm_destroy: Are you sure ?
       create_order: Create order
     show:
       actions: Actions
@@ -135,6 +132,9 @@ pt:
       quantity: quantity
       total: Total
       order: Order
+  quote_orders:
+    create:
+      your_quote_has_been_sent: Your quote has been sent
   pages:
     contact:
       contact: Contact

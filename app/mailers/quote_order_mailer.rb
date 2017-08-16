@@ -1,6 +1,4 @@
-class OrderMailer < ApplicationMailer
-
-  # TODO: update admin email address
+class QuoteOrderMailer < ApplicationMailer
   def send_quote user, quote_order
     @user = user
     @quote_order = quote_order
@@ -8,5 +6,4 @@ class OrderMailer < ApplicationMailer
       reply_to: @user.email,
       subject: 'Create quote order'
   end
-
 end

@@ -88,11 +88,6 @@ en:
     update:
       update_cart_failure: Update cart failure
       update_cart_success: Update cart success
-  orders:
-    new:
-      back_to_cart: Back to cart
-      create_order: Create order
-      confirm_destroy: Are you sure ?
   cart_items:
     create:
       create_cart_item_failure: Create cart item failure
@@ -122,7 +117,7 @@ en:
       quantity: Quantity
       total: Total
       back_to_cart: Back to cart
-      confirm_destroy: Confirm destroy
+      confirm_destroy: Are you sure ?
       create_order: Create order
     show:
       actions: Actions
@@ -137,6 +132,9 @@ en:
       quantity: quantity
       total: Total
       order: Order
+  quote_orders:
+    create:
+      your_quote_has_been_sent: Your quote has been sent
   pages:
     contact:
       contact: Contact
