@@ -15,7 +15,6 @@ es:
     header:
       home: Home
       logout: Logout
-      products: Products
       orders: Orders
       search: Search
       my_account: My Account
@@ -36,10 +35,11 @@ es:
       privacy_policy: Privacy Policy
       orders_and_returns: Orders and Returns
       my_account: My Account
+    collections:
+      collections: Collections
   warehouse_products:
     index:
       brand: Brand
-      collection: Collection
       filter_details: Filter Details
       home: Home
       our_products: Our Products
