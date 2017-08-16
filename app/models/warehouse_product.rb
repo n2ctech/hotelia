@@ -16,6 +16,30 @@ class WarehouseProduct < ApplicationRecord
 
   delegate :name, :description, :first_image, to: :product, prefix: true
 
+  scope :matches_all_tags, -> *tag_ids { where(matches_all_tags_arel(tag_ids)) }
+
+  def self.matches_all_tags_arel(tag_ids)
+    tag_ids = tag_ids.map(&:presence).compact
+    warehouse_products = Arel::Table.new(:warehouse_products)
+    products = Arel::Table.new(:products)
+    tags = Arel::Table.new(:tags)
+    products_tags = Arel::Table.new(:products_tags)
+
+    warehouse_products[:id].in(
+      warehouse_products.project(warehouse_products[:id])
+        .join(products).on(products[:id].eq(warehouse_products[:product_id]))
+        .join(products_tags).on(products[:id].eq(products_tags[:product_id]))
+        .join(tags).on(products_tags[:tag_id].eq(tags[:id]))
+        .where(tags[:id].in(tag_ids))
+        .group(warehouse_products[:id])
+        .having(tags[:id].count.eq(tag_ids.length))
+    )
+  end
+
+  def self.ransackable_scopes(auth_object = nil)
+    super + %w(matches_all_tags)
+  end
+
   def price_after_discount currency
     if support_currency?(currency)
       send("price_after_discount_#{currency.downcase}").to_f

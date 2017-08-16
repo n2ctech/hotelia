@@ -89,7 +89,7 @@
                         .col-sm-12
                           = t(".tag")
                         .col-sm-12
-                          = f.collection_select :product_tags_id_in,
+                          = f.collection_select :matches_all_tags,
                             Tag.all, :id, :name, {},
                             {multiple: true, class: "form-control select2"}
                   .col-md-12.col-sm-12.col-xs-12
