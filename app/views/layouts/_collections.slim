@@ -1,0 +1,10 @@
+.cd-dropdown-wrapper#collections-dropdown
+  a.cd-dropdown-trigger[href="#0"]
+    = t(".collections")
+  nav.cd-dropdown
+    ul.cd-dropdown-content
+      - Collection.all.each do |collection|
+        li
+          = link_to collection.name,
+            warehouse_products_path(q: {product_collection_id_eq: collection.id}),
+            class: "off-click"
