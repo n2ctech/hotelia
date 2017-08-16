@@ -85,9 +85,9 @@ header
                   li
                     a href="/" = t(".home")
                   li
-                    = link_to t(".products"), warehouse_products_path
-                  li
                     = render partial: "layouts/categories"
+                  li
+                    = render partial: "layouts/collections"
                   li
                     = link_to t(".orders"), orders_path
 

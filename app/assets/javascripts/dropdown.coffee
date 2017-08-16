@@ -2,24 +2,18 @@ $ ->
   if $(window).width() > 1025
     $(".off-click").off("click")
 
-  $(".cd-dropdown-wrapper").click ->
-    $dropdown = $(@)
-    setTimeout (->
-      if $dropdown.hasClass("openned")
-        $dropdown.removeClass("openned")
-      else
-        $dropdown.addClass("openned")
-    ), 500
+  $(document).click (e) ->
+    $(".cd-dropdown-wrapper").each (index, element) ->
+      if $(e.target).parents(".cd-dropdown-wrapper").first().attr('id') == $(element).attr('id')
+        return
+      if $(element).hasClass("dropdown-is-active")
+        $(element).removeClass("dropdown-is-active")
+        hideNav($(element))
 
-  $(document).click ->
-    if $(".cd-dropdown-wrapper").hasClass("openned")
-      $(".cd-dropdown-wrapper").removeClass("openned")
-      toggleNav()
-
-  toggleNav = ->
-    navIsVisible = if !$('.cd-dropdown').hasClass('dropdown-is-active') then true else false
-    $('.cd-dropdown').toggleClass 'dropdown-is-active', navIsVisible
-    $('.cd-dropdown-trigger').toggleClass 'dropdown-is-active', navIsVisible
+  hideNav = ($element) ->
+    navIsVisible = false
+    $element.find('.cd-dropdown').toggleClass 'dropdown-is-active', navIsVisible
+    $element.toggleClass 'dropdown-is-active', navIsVisible
     if !navIsVisible
       $('.cd-dropdown').one 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', ->
         $('.has-children ul').addClass 'is-hidden'
