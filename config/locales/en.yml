@@ -20,6 +20,7 @@ en:
       search: Search
       my_account: My Account
     cart_info:
+      get_a_quote: Get a quote
       confirm_destroy: Are you sure?
       total: Total
       view_cart: View cart
@@ -68,7 +69,7 @@ en:
       ask_for_price: Ask for price
       old_price: Old price
       price: Price
-      saving: saving
+      saving: Saving
   carts:
     show:
       actions: Actions
@@ -79,7 +80,8 @@ en:
       quantity: Quantity
       total: Total
       update_cart: Update cart
-      process_to_checkout: Process to checkout
+      checkout: Checkout
+      get_a_quote: Get a quote
       cart: Cart
       cart_info: Cart info
       home: Home

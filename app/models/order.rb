@@ -10,11 +10,15 @@ class Order < ApplicationRecord
     CVE: "CVE"
   }
 
+  validates :type, inclusion: { in: [nil, 'QuoteOrder'] }
+
   accepts_nested_attributes_for :order_items, reject_if: :all_blank,
     allow_destroy: true
 
   before_create :generate_uid
   before_save :set_total
+
+  default_scope { where(type: nil) }
 
   private
 

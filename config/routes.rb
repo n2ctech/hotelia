@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :cart_items
   resource :cart
   resources :tags
-  resources :orders, param: :uid
+  resources :orders, param: :uid do
+    collection do
+      post :create_quote
+    end
+  end
   resources :contacts, only: :create
   resources :images, only: :create
   resource :account, path: :my_account

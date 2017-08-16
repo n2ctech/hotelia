@@ -23,4 +23,7 @@ a.mini-cart-icon href="#"
   .clear
   .price-button-box.pad-top10.pad-bottom20.pull-right
     = link_to t(".view_cart"), cart_path, class: "itg-button View-btns"
+  .price-button-box.pad-top10.pad-bottom20.pull-right
+    = link_to t(".get_a_quote"), create_quote_orders_path, method: :post,
+      class: "itg-button View-btns"
     = link_to t(".checkout"), new_order_path, class: "itg-button pull-right Checkout-btns"

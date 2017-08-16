@@ -68,7 +68,7 @@ pt:
       ask_for_price: Ask for price
       old_price: Old price
       price: Price
-      saving: saving
+      saving: Saving
   carts:
     show:
       actions: Actions

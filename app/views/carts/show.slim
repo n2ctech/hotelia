@@ -89,7 +89,11 @@
                 strong.col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box.pre
                   = formatted_cart_total
       .row.pad-top20
-        .col-md-12
+        .col-md-4
           = f.submit t(".update_cart"), class: "itg-button blog-box"
-          = link_to t(".process_to_checkout"), new_order_path,
+        .col-md-4
+          = link_to t(".get_a_quote"), create_quote_orders_path, method: :post,
+            class: "itg-button blog-box"
+        .col-md-4
+          = link_to t(".checkout"), new_order_path,
             class: "itg-button blog-box right-bt pull-right"
