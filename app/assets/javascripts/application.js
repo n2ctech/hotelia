@@ -23,7 +23,6 @@
 //= require main
 //= require common
 //= require products
-//= require mega-dropdown/modernizr
 //= require mega-dropdown/jquery.menu-aim
 //= require mega-dropdown/main
 //= require dropdown
