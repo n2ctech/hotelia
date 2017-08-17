@@ -1,0 +1,102 @@
+- if @slider_products.length > 0
+  section.slider-section
+    #main-slider.owl-carousel.owl-theme
+      - @slider_products.each do |product|
+        .item
+          figure.dark-theme.hidden-xs
+            = image_tag(product.decorate.file_url)
+          figure.dark-theme.hidden-lg.hidden-md.hidden-sm
+            = image_tag(product.decorate.file_url)
+          .slider-section-1.text-left
+            .container
+              .col-md-12
+                .slider-box1
+                  .row
+                    .main-slider-heading
+                      h1 = product.name
+                    .slider-section-1-text
+                      p = product.decorate.short_description
+                    a.itg-button.mar-top20[href="collection-list-sidebar.html"]
+                      | Shop Now
+
+- if @product_list_1.length > 0
+  .collection-section.pad-top-bottom80
+    .container
+      .row
+        - @product_list_1.each_with_index do |product, index|
+          .col-md-4.col-sm-4.col-xs-12.pad-top30
+            figure.itg-hover-section
+              = image_tag(product.decorate.file_url)
+              figcaption.categorie-boxs
+                h3
+                  = link_to product.name, ""
+          - if index == 2
+            .clear
+
+- if @warehouse_product_list_2.length > 0
+  section
+    .products-section.pad-bottom80
+      .container
+        .row
+          .headding-box
+            h3.theme-headdings
+              = t(".our_products")
+
+          .products.mar-top40
+            - @warehouse_product_list_2.each_with_index do |warehouse_product, index|
+              .col-md-3.col-sm-3.col-xs-12
+                = render partial: "warehouse_products/warehouse_product_grid_item",
+                  locals: {warehouse_product: warehouse_product}
+              - if (index + 1) % 4 == 0
+                .pad-top30.clear
+
+section
+  .banner-section
+    .special-style.special-style-full.special-style-semidark.col-md-12.col-md-offset-0.pull-right
+      .bg-image[style="background-image:url('assets/img/slider/banner1.jpg');"]
+    .container.pad-top-bottom130
+      .banner-text-box
+        h1.text-center
+          | The ultimate in luxury and style.
+        p
+          | Flat 15% off on Modern couch
+        a.itg-button.mar-top20[href="collection-list-sidebar.html"]
+          | Shop Now
+
+- if @categories.length > 0
+  section
+    .Categories-box.pad-top80.pad-bottom80
+      .container
+        .row
+          .headding-box
+            h3.theme-headdings
+              = t(".our_categories")
+
+          .Categories-blog.pad-top40
+            - @categories.each do |category|
+              .col-md-3.col-sm-6.col-xs-12
+                figure.itg-hover-style1
+                  = image_tag("all/categorie1.png")
+                  figcaption.pad-bottom10.figure-boxx.cotegories
+                    h4.theme-headdings.text-center
+                      = category.name
+                    .categorie-text-box
+                      h4
+                        = category.name
+                      = link_to t(".view_shop"), "", class: "itg-button mar-top20"
+
+- if @populer_warehouse_products.length > 0
+  section
+    .product-items-section.pad-bottom80
+      .container
+        .row
+          .headding-box.mar-bottom40
+            h3.theme-headdings
+              = t(".popular_items")
+
+          #product-items-slider.owl-carousel.owl-theme
+            - @populer_warehouse_products.each_with_index do |warehouse_product, index|
+              .item
+                .col-md-12.col-sm-12.col-xs-12
+                  = render partial: "warehouse_products/warehouse_product_grid_item",
+                    locals: {warehouse_product: warehouse_product}

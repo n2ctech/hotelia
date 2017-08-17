@@ -38,8 +38,9 @@
                         t(".price"), default_order: :asc)
                 #productsgriads.products.mar-top30
                   - @warehouse_products.each do |warehouse_product|
-                    = render partial: "warehouse_product_grid_item",
-                      locals: {warehouse_product: warehouse_product}
+                    .col-md-4.col-sm-4.col-xs-12
+                      = render partial: "warehouse_product_grid_item",
+                        locals: {warehouse_product: warehouse_product}
                   .col-md-12
                     = paginate @warehouse_products
               .row

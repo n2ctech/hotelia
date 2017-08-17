@@ -1,15 +1,15 @@
-.col-md-4.col-sm-4.col-xs-12
-  figure.itg-hover-style2.text-center
-    = image_tag(warehouse_product.product.decorate.thumb_url.to_s, alt: "")
-    .products-boxes
-      ul.icon-hover
-        li
-          = link_to warehouse_product_path(warehouse_product) do
-            i.fa.fa-eye aria-hidden="true"
-        li
-          = link_to cart_items_path(cart_item: {quantity: 1, warehouse_product_id: warehouse_product.id}), method: :post do
-            i.fa.fa-shopping-cart aria-hidden="true"
-    figcaption.figure-boxx.figure-section-hover
-      h4.theme-headdings.text-center.pad-top10
-        = link_to warehouse_product.product_name, warehouse_product_path(warehouse_product)
-      = render partial: "warehouse_product_price", locals: {warehouse_product: warehouse_product}
+figure.itg-hover-style2.text-center
+  = image_tag(warehouse_product.product.decorate.thumb_url.to_s, alt: "")
+  .products-boxes
+    ul.icon-hover
+      li
+        = link_to warehouse_product_path(warehouse_product) do
+          i.fa.fa-eye aria-hidden="true"
+      li
+        = link_to cart_items_path(cart_item: {quantity: 1, warehouse_product_id: warehouse_product.id}), method: :post do
+          i.fa.fa-shopping-cart aria-hidden="true"
+  figcaption.figure-boxx.figure-section-hover
+    h4.theme-headdings.text-center.pad-top10
+      = link_to warehouse_product.product_name, warehouse_product_path(warehouse_product)
+    = render partial: "warehouse_products/warehouse_product_price",
+      locals: {warehouse_product: warehouse_product}

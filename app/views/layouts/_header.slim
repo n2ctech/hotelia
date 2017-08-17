@@ -83,7 +83,9 @@ header
                 /! nav
                 ul.nav.navbar-nav
                   li
-                    a href="/" = t(".home")
+                    = link_to t(".home"), root_path
+                  li
+                    = link_to t(".products"), warehouse_products_path
                   li
                     = render partial: "layouts/categories"
                   li
@@ -120,10 +122,11 @@ header
     /! Menu
   /! //==mega menu end==//
 /! //==top bar End==//
-.breadcrumb-section-box
-  .special-style.special-style-full.special-style-semidark.col-md-12.col-md-offset-0.pull-right
-    .bg-image style="background-image:url(#{asset_path('all/breadcrumb-img.png')});"
-  .container
-    .row
-      .col-md-12.col-sm-12.pad-top100.pad-bottom100.heading-box
-        = yield :breadcrumb
+- if content_for?(:breadcrumb)
+  .breadcrumb-section-box
+    .special-style.special-style-full.special-style-semidark.col-md-12.col-md-offset-0.pull-right
+      .bg-image style="background-image:url(#{asset_path('all/breadcrumb-img.png')});"
+    .container
+      .row
+        .col-md-12.col-sm-12.pad-top100.pad-bottom100.heading-box
+          = yield :breadcrumb
