@@ -8,3 +8,13 @@
 .m-b-20 {padding-bottom: 20px}
 
 .text-line-through {text-decoration-line: line-through;}
+
+.devise-page {
+  background-image: asset-url('login-bg.jpg');
+  background-size: cover;
+
+  .Profile {
+    background: #fefefe;
+    padding: 20px;
+  }
+}
