@@ -16,8 +16,6 @@
   .col-md-7.col-sm-7.col-xs-12.responsive-top
     h3.theme-headdings.text-left.product-detail-title
       = @warehouse_product.product.name
-    .per-box.texy-left.mar-top15
-      = simple_format @warehouse_product.product.description.to_s
     .head-medial-text.pad-top10
       p
         = t(".availability")
