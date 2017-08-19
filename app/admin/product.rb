@@ -2,7 +2,8 @@ ActiveAdmin.register Product do
   permit_params :brand_id, :supplier_id, :subcategory_id, :collection_id,
     *Product.locale_columns(:name, :description, :features),
     :code, :all_tags,
-    images_attributes: [:id, :file, :_destroy]
+    images_attributes: [:id, :file, :_destroy],
+    home_slider_image_attributes: [:id, :file, :_destroy]
 
   index do
     selectable_column
@@ -28,6 +29,11 @@ ActiveAdmin.register Product do
       row :collection
       row :description
       row :features
+      row :home_slider_image do
+        if product.home_slider_image
+          image_tag(product.home_slider_image&.thumb_url)
+        end
+      end
       table_for product.images do
         column :images do |image|
           image_tag image.file.thumb.url
@@ -48,6 +54,13 @@ ActiveAdmin.register Product do
       f.input :subcategory
       f.input :collection
       f.input :all_tags
+    end
+
+    f.inputs "HomeSliderImage",
+      for: [:home_slider_image, f.object.home_slider_image || Image.new] do |image|
+        image.input :file, as: :file,
+          hint: image.object.file.thumb.url ?
+            image_tag(image.object.file.thumb.url) : ""
     end
 
     f.inputs "Attachment", :multipart => true do

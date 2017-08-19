@@ -47,7 +47,6 @@ gem 'flag-icons-rails'
 gem 'rollbar'
 gem 'scout_apm'
 gem 'redactor2', github: 'nguyenducgiang/redactor2', branch: '2.9.0'
-gem 'rails-settings-cached'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

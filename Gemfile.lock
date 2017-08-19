@@ -240,8 +240,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-settings-cached (0.6.6)
-      rails (>= 4.2.0)
     railties (5.1.2)
       actionpack (= 5.1.2)
       activesupport (= 5.1.2)
@@ -347,7 +345,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.2)
-  rails-settings-cached
   ransack
   redactor2!
   rmagick

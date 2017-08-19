@@ -9,10 +9,11 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :collection, optional: true
   has_many :images, as: :attachable
+  has_one :home_slider_image, as: :attachable, class_name: Image.name
   has_one :first_image, class_name: Image.to_s, as: :attachable
   has_and_belongs_to_many :tags
 
-  accepts_nested_attributes_for :images, reject_if: :all_blank,
+  accepts_nested_attributes_for :images, :home_slider_image, reject_if: :all_blank,
     allow_destroy: true
 
   before_validation :set_categories
