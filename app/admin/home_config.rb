@@ -1,4 +1,5 @@
 ActiveAdmin.register HomeConfig do
+  actions :all, except: [:new, :destroy]
   home_product_attributes = [
     :id, :product_id, :_destroy
   ]
