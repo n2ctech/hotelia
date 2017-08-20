@@ -37,21 +37,26 @@ footer
   .footer-main-section
     .container
       .row.pad-top80.pad-bottom70
-        .col-md-3.col-sm-6.col-xs-12
+        .col-md-4.col-sm-4.col-xs-12
           .footer-section1
             h4.footer-head-line About us
-            p Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry.
-            ul.text-box
+            ul.text-box.pad-top15
               li
                 i.fa.fa-envelope-o aria-hidden="true"
-                span hello@gmail.com
-              li
-                i.fa.fa-phone aria-hidden="true"
-                span P: 3333 222 1111
+                span sales@oliverpfs.com
               li
                 i.fa.fa-map-marker aria-hidden="true"
-                span 99 Barnard St States - GA 22222
-        .col-md-3.col-sm-6.col-xs-12.responsive-top
+                span
+                  | OLIVERFOOD RESORTS S.A.
+                  br
+                  | Rua 1º de Junho, Edif Bazamore
+                  br
+                  | CV00163 SANTA MARIA ILHA DO SAL
+                  br
+                  | CABO VERDE
+                  br
+                  | NIF: 2668831904
+        .col-md-4.col-sm-4.col-xs-12.responsive-top
           .footer-section2
             h4.footer-head-line Information
             ul.footer-box2.pad-top15
@@ -67,7 +72,7 @@ footer
                 = link_to t('.privacy_policy'), page_path('privacy_policy')
               li
                 = link_to t('.contact'), page_path('contact')
-        .col-md-3.col-sm-6.col-xs-12.responsive-top
+        .col-md-4.col-sm-4.col-xs-12.responsive-top
           .footer-section2
             h4.footer-head-line My Account
             ul.footer-box2.pad-top15
@@ -79,9 +84,5 @@ footer
                 = link_to t(".my_orders"), orders_path
               li
                 = link_to t(".logout"), destroy_user_session_path, method: :delete
-        .col-md-3.col-sm-6.col-xs-12.responsive-top
-          .footer-section1
-            h4.footer-head-line Newsletter
-            p Coming soon
     .footer-bottom-bar.pad-top-bottom25
       p Copyright © 2017 Hotelia
