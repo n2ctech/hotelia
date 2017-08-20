@@ -17,7 +17,7 @@ header
             .col-md-6.col-sm-3.col-xs-12
               figure.logo-box
                 a href="/"
-                  img alt="" src=asset_path("logo.png")
+                  = image_tag "logo.jpg", style: "max-height: 39px"
             .col-md-6.col-sm-9.col-xs-12
               .row
                 .top-bars-icon-section
@@ -77,7 +77,7 @@ header
                     li.hidden-sm.hidden-md.hidden-lg.hover-mini-cart
                       = render "layouts/cart_info"
                 a.navbar-brand.hidden-sm.hidden-md.hidden-lg.logo-second href="index.html"
-                  img.site_logo alt=("Site Logo") src=asset_path("menu-logo.png")
+                  = image_tag "logo.jpg", class: "site_logo", style: "max-height: 39px;"
               /! Navbar Collapse
               .navbar-collapse.collapse
                 /! nav
