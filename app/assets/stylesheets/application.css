@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require mega-dropdown/reset
  *= require main
  *= require bootstrap.min
  *= require select2.min
@@ -27,8 +26,6 @@
  *= require switcher/css/switcher
  *= require common
  *= require flag-icon
- *= require mega-dropdown/style
- *= require dropdown
  *= require_self
  */
 

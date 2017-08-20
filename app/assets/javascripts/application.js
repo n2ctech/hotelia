@@ -23,6 +23,5 @@
 //= require main
 //= require common
 //= require products
-//= require mega-dropdown/jquery.menu-aim
-//= require mega-dropdown/main
-//= require dropdown
+//= require menu-menu/js/hover-dropdown-menu
+//= require menu-menu/js/jquery.hover-dropdown-menu-addon
