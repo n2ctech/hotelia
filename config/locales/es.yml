@@ -14,6 +14,7 @@ es:
   layouts:
     header:
       home: Home
+      products: Products
       logout: Logout
       orders: Orders
       search: Search
@@ -135,10 +136,6 @@ es:
   quote_orders:
     create:
       your_quote_has_been_sent: Your quote has been sent
-  pages:
-    contact:
-      contact: Contact
-      home: Home
   errors:
     error404:
       page_not_found: Page Not Found
@@ -169,6 +166,12 @@ es:
     terms_and_conditions:
       terms_and_conditions: Terms and Conditions
       home: Home
+    home:
+      our_categories: Our categories
+      our_products: Our products
+      popular_items: Popular items
+      shop_now: Shop now
+      view_shop: View shop
   contacts:
     create:
       your_message_has_been_sent: Your message has been sent. We will respond as soon as possible. Thank you!
