@@ -1,23 +1,24 @@
-.cd-dropdown-wrapper#categories-dropdown
-  a.cd-dropdown-trigger[href="#0"]
-    = t(".categories")
-  nav.cd-dropdown
-    ul.cd-dropdown-content
-      - Family.all.each do |family|
-        li.has-children
-          = link_to family.name, warehouse_products_path(q: {product_family_id_eq: family.id}), class: "off-click"
-          ul.cd-dropdown-content.dropdown-with-box-shadow.is-hidden
+li
+  = link_to t(".categories"), "#!"
+  ul.dropdown-menu
+    - Family.all.each do |family|
+      li.left-side
+        = link_to family.name, warehouse_products_path(q: {product_family_id_eq: family.id})
+        - if family.subfamilies.length > 0
+          ul.dropdown-menu
             - family.subfamilies.each do |subfamily|
-              li.has-children
+              li.left-side
                 = link_to subfamily.name,
-                  warehouse_products_path(q: {product_subfamily_id_eq: subfamily.id}), class: "off-click"
-                ul.cd-dropdown-content.dropdown-with-box-shadow.is-hidden
-                  - subfamily.categories.each do |category|
-                    li.has-children
-                      = link_to category.name,
-                        warehouse_products_path(q: {product_category_id_eq: category.id}), class: "off-click"
-                      ul.cd-dropdown-content.dropdown-with-box-shadow.is-hidden
-                        - category.subcategories.each do |subcategory|
-                          li
-                            = link_to subcategory.name,
-                              warehouse_products_path(q: {product_subcategory_id_eq: subcategory.id}), class: "off-click"
+                  warehouse_products_path(q: {product_subfamily_id_eq: subfamily.id})
+                - if subfamily.categories.length > 0
+                  ul.dropdown-menu
+                    - subfamily.categories.each do |category|
+                      li.left-side
+                        = link_to category.name,
+                          warehouse_products_path(q: {product_category_id_eq: category.id})
+                        - if category.subcategories.length > 0
+                          ul.dropdown-menu
+                            - category.subcategories.each do |subcategory|
+                              li
+                                = link_to subcategory.name,
+                                  warehouse_products_path(q: {product_subcategory_id_eq: subcategory.id})
