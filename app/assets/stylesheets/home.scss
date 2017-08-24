@@ -1,14 +1,14 @@
-section.slider-section {
-  background-color: #FCF7F3;
-  figure.dark-theme.hidden-xs {
-    height: 535px;
-    img {
-      max-height: 535px;
+@media (min-width: 992px) {
+  section.slider-section {
+    background-color: #FCF7F3;
+    figure.dark-theme.hidden-xs {
+      height: 535px;
+      img {
+        max-height: 535px;
+      }
     }
   }
-}
 
-@media (min-width: 992px) {
   .product-list-1 .itg-hover-section {
     width: 360px;
     height: 300px;
