@@ -26,6 +26,7 @@
  *= require switcher/css/switcher
  *= require common
  *= require flag-icon
+ *= require home
  *= require_self
  */
 

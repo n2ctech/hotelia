@@ -8,12 +8,15 @@ html
 
   body
     = render "layouts/header"
-    .pad-bottom80.pad-top80.blog-griad
-      .container
-        #currency.hidden
-          = current_user&.currency || User::USD
-        = flash_messages
-        = yield
+    #currency.hidden
+      = current_user&.currency || User::USD
+    - if content_for?(:skip_container)
+      = yield
+    - else
+      .pad-bottom80.pad-top80.blog-griad
+        .container
+          = flash_messages
+          = yield
     = render "layouts/footer"
     = javascript_include_tag 'application'
     = yield(:javascript) if content_for?(:javascript)

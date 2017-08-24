@@ -8,9 +8,13 @@ class Product < ApplicationRecord
   belongs_to :subcategory, optional: true
   belongs_to :category
   belongs_to :collection, optional: true
-  has_many :images, as: :attachable
-  has_one :home_slider_image, as: :attachable, class_name: Image.name
-  has_one :first_image, class_name: Image.to_s, as: :attachable
+  has_many :images, -> { where(image_type: nil) },
+    as: :attachable
+  has_one :home_slider_image,
+    -> { where(image_type: "home_slider_image") },
+    as: :attachable, class_name: Image.name
+  has_one :first_image, -> { where(image_type: nil) },
+    class_name: Image.to_s, as: :attachable
   has_and_belongs_to_many :tags
 
   accepts_nested_attributes_for :images, :home_slider_image, reject_if: :all_blank,
