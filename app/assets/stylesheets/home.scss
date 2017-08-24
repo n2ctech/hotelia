@@ -1,0 +1,43 @@
+section.slider-section {
+  background-color: #FCF7F3;
+  figure.dark-theme.hidden-xs {
+    height: 535px;
+    img {
+      max-height: 535px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .product-list-1 .itg-hover-section {
+    width: 360px;
+    height: 300px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .categories {
+    .categorie-text-box h4 {
+      margin-top: 35px;
+    }
+    figure.itg-hover-style1 {
+      width: 262px;
+      height: 200px;
+      background: white;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .our-products figure.itg-hover-style2 {
+    background: white;
+  }
+  .popular-items .owl-item {
+    width: 262px;
+    img {
+      height: 200px;
+    }
+  }
+}

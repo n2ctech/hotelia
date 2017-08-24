@@ -1,4 +1,6 @@
 - if @slider_warehouse_products.length > 0
+  = content_for :skip_container
+    true
   section.slider-section
     #main-slider.owl-carousel.owl-theme
       - @slider_warehouse_products.each do |warehouse_product|
@@ -14,14 +16,14 @@
                 .slider-box1
                   .row
                     .main-slider-heading
-                      h1 = product.name
+                      h2 = product.name
                     .slider-section-1-text
                       p = product.decorate.short_description
                     = link_to t(".shop_now"), warehouse_product_path(warehouse_product),
                       class: "itg-button mar-top20"
 
 - if @warehouse_product_list_1.length > 0
-  .collection-section.pad-top-bottom80
+  .collection-section.pad-top-bottom80.product-list-1
     .container
       .row
         - @warehouse_product_list_1.each_with_index do |warehouse_product, index|
@@ -36,7 +38,7 @@
             .clear
 
 - if @warehouse_product_list_2.length > 0
-  section
+  section.our-products
     .products-section.pad-bottom80
       .container
         .row
@@ -68,7 +70,7 @@
 
 - if @categories.length > 0
   section
-    .Categories-box.pad-top80.pad-bottom80
+    .categories.Categories-box.pad-top80.pad-bottom80
       .container
         .row
           .headding-box
@@ -76,7 +78,7 @@
               = t(".our_categories")
 
           .Categories-blog.pad-top40
-            - @categories.each do |category|
+            - @categories.each_with_index do |category, index|
               .col-md-3.col-sm-6.col-xs-12.m-b-30
                 figure.itg-hover-style1
                   = image_tag(category.decorate.file_url)
@@ -89,9 +91,11 @@
                       = link_to t(".view_shop"),
                         warehouse_products_path(q: {product_category_id_eq: category.id}),
                         class: "itg-button mar-top20"
+              - if (index + 1) % 4 == 0
+                .pad-top30.clear
 
 - if @popular_warehouse_products.length > 0
-  section
+  section.popular-items
     .product-items-section.pad-bottom80
       .container
         .row
