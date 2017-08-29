@@ -1,7 +1,7 @@
 - if @slider_warehouse_products.length > 0
   = content_for :skip_container
     true
-  section.slider-section
+  section.slider-section.m-b-80
     #main-slider.owl-carousel.owl-theme
       - @slider_warehouse_products.each do |warehouse_product|
         - product = warehouse_product.product
@@ -23,7 +23,7 @@
                       class: "itg-button mar-top20"
 
 - if @warehouse_product_list_1.length > 0
-  .collection-section.pad-top-bottom80.product-list-1
+  .collection-section.pad-bottom80.product-list-1
     .container
       .row
         - @warehouse_product_list_1.each_with_index do |warehouse_product, index|
