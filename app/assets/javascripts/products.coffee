@@ -1,13 +1,15 @@
 window.rangSliderint = ->
   'use strict'
   sliderRange = $('#slider-range')
+  minPrice = parseInt($('#min-price').val() || 0)
+  maxPrice = parseInt($('#max-price').val() || 1000)
   sliderRange.slider
     range: true
-    min: 0
-    max: 1000
+    min: minPrice
+    max: maxPrice
     values: [
-      $("#price-gteq").val() || 100,
-      $("#price-lteq").val() || 500
+      $("#price-gteq").val() || minPrice,
+      $("#price-lteq").val() || maxPrice
     ]
     slide: (event, ui) ->
       setSearchPriceValue ui.values

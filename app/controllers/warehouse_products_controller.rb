@@ -1,6 +1,17 @@
 class WarehouseProductsController < BaseController
   def index
     @q = scope.ransack(params[:q])
+    if params.dig(:q, :product_subcategory_id_eq).present?
+      @subcategory =
+        Subcategory.find_by id: params.dig(:q, :product_subcategory_id_eq)
+      price_column = "price_#{current_user.currency.downcase}"
+      @max_price = @q.result.maximum(price_column).to_f
+      @min_price = @q.result.minimum(price_column).to_f
+    end
+    if params.dig(:q, :product_collection_id_eq).present?
+      @collection =
+        Collection.find_by id: params.dig(:q, :product_collection_id_eq)
+    end
     @warehouse_products = @q.result.page(params[:page]).per(params[:per_page])
   end
 
