@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   resources :warehouse_products
   resources :cart_items
-  resource :cart
+  resource :cart do
+    collection do
+      post 'clone_order'
+    end
+  end
   resources :tags
   resources :orders, param: :uid
   resources :quote_orders, only: :create
