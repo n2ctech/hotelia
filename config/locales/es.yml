@@ -91,8 +91,8 @@ es:
       update_cart_failure: Update cart failure
       update_cart_success: Update cart success
     clone_order:
-      clone_order_failure: Clone order failure
-      clone_order_success: Clone order success
+      clone_order_failure: Could not create new order from this order!
+      clone_order_success: Items from this orders are added to your cart!
   cart_items:
     create:
       create_cart_item_failure: Create cart item failure
@@ -108,11 +108,9 @@ es:
       home: Home
       order_items: Order items
       orders: Orders
-      show: Show
+      show: View Details
       total: Total
       uid: Uid
-      are_you_sure: Are you sure?
-      clone: Clone
     new:
       actions: Actions
       checkout: Checkout
@@ -139,8 +137,8 @@ es:
       quantity: quantity
       total: Total
       order: Order
-      are_you_sure: Are you sure?
-      clone: Clone
+      are_you_sure: This action will copy all the items from this orders to your cart. Do you want to proceed?
+      clone: Create new order from this
   quote_orders:
     create:
       your_quote_has_been_sent: Your quote has been sent

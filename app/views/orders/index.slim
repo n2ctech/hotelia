@@ -15,7 +15,7 @@ table.table.table-striped
       th = t(".total")
       th = t(".comment")
       th = t(".created_at")
-      th[colspan="2"] = t(".action")
+      th = t(".action")
   tbody
     - @orders.each do |order|
       tr
@@ -27,8 +27,6 @@ table.table.table-striped
         td = order.comment
         td = order.created_at.strftime("%Y-%m-%d")
         td = link_to t(".show"), order_path(order.uid)
-        td = link_to t(".clone"), clone_order_cart_path(order_uid: order.uid),
-          method: :post, data: {confirm: t(".are_you_sure")}
 
 .row
   .col-md-12.text-center

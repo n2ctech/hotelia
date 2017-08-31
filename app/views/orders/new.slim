@@ -82,19 +82,17 @@
       .clear
       .Cart-Totals-box.mar-top30.p-t-40.p-b-40
         .row
-          .col-md-12.marB30
+          .col-md-12.text-left.text-cart-box
+            = f.label :comment
+          .col-md-12.text-left.text-cart-box
+            = f.text_area :comment, rows: 5
+        br
+        .row
+          .col-md-12
             .order-data-color.order-data.grey-bg.text-left.pad15
               .row
                 .col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
-                  = f.label :comment
-                .col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box
-                  = f.text_area :comment
-        .row
-          .col-md-12.marB30
-            .order-data-color.order-data.grey-bg.text-left.pad15
-              .row
-                strong.col-md-4.col-sm-4.col-xs-4.text-left.text-cart-box
-                  = t(".order_total")
+                  label = t(".order_total")
                 strong.col-md-8.col-sm-8.col-xs-8.text-left.text-cart-box.pre
                   = formatted_cart_total
                 .clear
