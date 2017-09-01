@@ -5,8 +5,9 @@
     ul.breadcrumb
       li
         a.sab-heading-breadcrumb.box-z href="/" = t(".home")
-        - if @subcategory.present?
-          li.heading-wa.box-z.activ = t(".products") + @subcategory.decorate.full_name
+        - if (@subcategory || @category).present?
+          li.heading-wa.box-z.activ
+            = t(".products") + (@subcategory || @category).decorate.full_name
         - elsif @collection.present?
           li.heading-wa.box-z.activ = t(".collection") + " / #{@collection.name}"
         - else
@@ -61,6 +62,7 @@
                 .col-md-12
                   = search_form_for @q do |f|
                     = f.hidden_field :product_subcategory_id_eq
+                    = f.hidden_field :product_category_id_eq
                     = f.hidden_field :product_collection_id_eq
                     .search-box-1.mar-bottom40#products-search
                       = f.search_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont", placeholder: t(".search")
@@ -69,6 +71,7 @@
                 = search_form_for @q, class: "form-horizontal" do |f|
                   = f.hidden_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont"
                   = f.hidden_field :product_subcategory_id_eq
+                  = f.hidden_field :product_category_id_eq
                   = f.hidden_field :product_collection_id_eq
                   /! //==Categories Start==//
                   .col-md-12
