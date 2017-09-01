@@ -8,4 +8,8 @@ class CategoryDecorator < Draper::Decorator
     object.image&.file_url ||
       ActionController::Base.helpers.image_path("Products/Products1.png")
   end
+
+  def full_name
+    " / #{object.name}"
+  end
 end
