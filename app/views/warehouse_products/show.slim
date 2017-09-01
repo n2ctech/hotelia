@@ -24,6 +24,12 @@
           = @warehouse_product.stock
     .head-medial-text.pad-top10
       p
+        = t(".brand")
+        | : &nbsp;
+        span.Products-in-stock
+          = @warehouse_product.brand_name
+    .head-medial-text.pad-top10
+      p
         = t(".product_code")
         | : &nbsp;
         span.Products-in-stock
