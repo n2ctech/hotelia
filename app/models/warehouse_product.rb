@@ -15,6 +15,7 @@ class WarehouseProduct < ApplicationRecord
   before_save :set_price_after_discount
 
   delegate :name, :description, :first_image, to: :product, prefix: true
+  delegate :brand_name, to: :product
 
   scope :matches_all_tags, -> *tag_ids { where(matches_all_tags_arel(tag_ids)) }
 
