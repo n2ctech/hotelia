@@ -70,13 +70,19 @@
                         i.fa.fa-search aria-hidden="true"
                 = search_form_for @q, class: "form-horizontal" do |f|
                   = f.hidden_field "#{Product.locale_columns(:name).map{|e| "product_#{e}"}.join("_or_")}_cont"
-                  = f.hidden_field :product_subcategory_id_eq
                   = f.hidden_field :product_category_id_eq
                   = f.hidden_field :product_collection_id_eq
                   /! //==Categories Start==//
                   .col-md-12
                     .Categories
                       h4.theme-headdings = t(".filter_details")
+                      .form-group
+                        .col-sm-12
+                          = t(".subcategory")
+                        .col-sm-12
+                          = f.collection_select :product_subcategory_id_eq,
+                            (@category&.subcategories || Subcategory.all), :id, :name, {include_blank: ''},
+                            {class: "form-control"}
                       .form-group
                         .col-sm-12
                           = t(".supplier")

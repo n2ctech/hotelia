@@ -6,6 +6,11 @@ class WarehouseProductsController < BaseController
       @collection =
         Collection.find_by id: params.dig(:q, :product_collection_id_eq)
     end
+
+    price_column = "price_after_discount_#{current_user.currency.downcase}"
+    @max_price = scope.maximum(price_column).to_f
+    @min_price = 0
+
     @warehouse_products = @q.result.page(params[:page]).per(params[:per_page])
   end
 
@@ -26,29 +31,14 @@ class WarehouseProductsController < BaseController
   end
 
   def filter_by_category
-    filter = nil
     if params.dig(:q, :product_subcategory_id_eq).present?
       @subcategory =
         Subcategory.find_by id: params.dig(:q, :product_subcategory_id_eq)
     end
 
-    if @subcategory
-      filter = scope.ransack(params[:q].slice(:product_subcategory_id_eq))
-    end
-
     if params.dig(:q, :product_category_id_eq).present?
       @category =
         Category.find_by id: params.dig(:q, :product_category_id_eq)
-    end
-
-    if @category
-      filter ||= scope.ransack(params[:q].slice(:product_category_id_eq))
-    end
-
-    if filter
-      price_column = "price_after_discount_#{current_user.currency.downcase}"
-      @max_price = filter.result.maximum(price_column).to_f
-      @min_price = filter.result.minimum(price_column).to_f
     end
   end
 end
