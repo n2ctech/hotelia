@@ -57,6 +57,7 @@ en:
       price: Price
       tag: Tag
       collection: Collection
+      subcategory: Subcategory
     show:
       add_to_cart: Add to cart
       availability: Availability
@@ -65,6 +66,7 @@ en:
       description: Description
       features: Features
       home: Home
+      brand: Brand
     related_products:
       related_products: Related Products
     warehouse_product_price:
