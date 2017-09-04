@@ -82,7 +82,7 @@
                         .col-sm-12
                           = f.collection_select :product_subcategory_id_eq,
                             (@category&.subcategories || Subcategory.all), :id, :name, {include_blank: ''},
-                            {class: "form-control"}
+                            {class: "form-control subcategory-filter"}
                       .form-group
                         .col-sm-12
                           = t(".supplier")
