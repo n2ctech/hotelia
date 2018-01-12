@@ -104,4 +104,6 @@ Rails.application.configure do
     host: 'hotelia.herokuapp.com'
   }
   # config.action_mailer.default_options = {}
+
+  config.force_ssl = true
 end
